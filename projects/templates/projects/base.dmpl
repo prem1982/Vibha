@@ -1,0 +1,12 @@
+{% extends "base.dmpl" %}
+
+{% block projectsLeftBox %}
+    <ul>
+      <li><a href="http://wiki.vibha.org/Project_Overview">Overview</a></li>
+      <li><a href="http://wiki.vibha.org/Project_Selection">Project Selection</a></li>
+      <li><a href="http://wiki.vibha.org/Project_Monitoring">Project Monitoring</a></li>
+      <li class="h"><a href="http://vibha.org/projects">Current Projects</a></li>
+      <li><a href="http://wiki.vibha.org/Project_Visiting">Visit a Project</a></li>
+      <li><a href="http://wiki.vibha.org/Project_Application">Project Application</a></li>
+      <li><a href="http://wiki.vibha.org/Project_FAQ">FAQ</a></li>
+    </ul>{% endblock %}

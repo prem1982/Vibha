@@ -1,0 +1,20 @@
+{% extends "base2.dmpl" %}
+
+{% block content %}
+<h3>Search Results</h3>
+{% if q %}
+<p>Projects whose descriptions contain the keywords: {{q}}</p> <br />
+
+{% if projects %}
+    {% for project in projects %}
+        {% include "projectfilter/project_frag.dmpl"%}
+    {% endfor %}
+{% else %}
+    <h4>No Projects found</h4>
+{%endif%}
+
+{% else %}
+<h4>Please enter a keyword to search for</h4>
+{% endif %}
+
+{% endblock %}

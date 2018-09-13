@@ -1,0 +1,30 @@
+{% extends "base.dmpl" %}
+
+{% block title %} Vibha : Dream Registry list {% endblock %}
+
+{% block contentBox %}
+
+  {% if eventS %}
+    <table class="other">
+      <tr class="heading">
+        <td> # </td>
+        <td> Honoree </td>
+        <td> Event </td>
+        <td> Date </td>
+        <td> Status </td>
+      </tr>
+      {% for event in eventS %}
+          <tr class="{% cycle s0,s1 %}">
+            <td> {{ forloop.counter }} </td>
+            <td> <a href="{{ event.get_absolute_url }}">{{ event.honoree }}</a> </td>
+            <td> {{ event.short_title }} </td>
+            <td> {{ event.event_date|date:"M j" }} </td>
+            <td> {{ event.get_status_display }} </td>
+          </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+      <p>No event available.</p>
+  {% endif %}
+
+{% endblock %}

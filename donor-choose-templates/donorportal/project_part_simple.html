@@ -1,0 +1,30 @@
+  <div class="project_detail">
+    <div class="left_img"> 
+      <img src="{{project.get_random_picture.thumbnail.url}}" alt="{{project}}" width="112" height="112" />
+    </div>
+    <div class="right_con"><a href="{% url project_page project.slug %}" ><h1 style="color: #404040; text-decoration: none; font-weight: bold; background: none;"> {{ project.name }} </h1> </a>
+
+      <table width="95%" border="0" align="left" cellpadding="2" cellspacing="0">
+        <tr>
+          <td width="72%"><p>{{ project.summary }}<br /></p>
+          </td>
+        </tr>
+            {% if project.get_relevant_reports %}
+            <tr><td><p>Recent Project Reports:
+			  {% for report in project.get_relevant_reports %}
+			    <li><a href="http://projects.vibha.org/project-uploads/reports/report.php?report={{report.report_file|cut:"reports/"}}">{{report.desc}}</a></li>
+			  {% endfor %}
+        </p></td></tr>
+	    {% endif %}
+	<tr> 
+	<td>
+	{% if in_watchlist%}
+	<p><a href="{% url portal_watch_project_toggle project.slug %}">Unwatch this project</a></p>
+	{% endif %}
+	</td>
+	</tr>
+      </table>
+      <p>&nbsp;</p>
+    </div>
+    <div class="clr"></div>
+  </div>

@@ -1,0 +1,32 @@
+{% extends "dreammile-base.html" %}
+
+{% load champion %}
+
+{% block contentBox %}
+<h2> Vibha Austin's Fundraising page </h2>
+<center>
+    <a href="{{ champion.donation_page_url }}"><img src="http://wiki.vibha.org/images/Active_donate_blue.gif" alt="Donate here" /></a>
+</center>
+Welcome to the Vibha Austin's Dream Mile 2008 pledge drive. To become a
+champion please email austin@dreammile.org.
+
+
+{{ champion|austin_cumulative_goal }}
+
+<h3> Vibha Champions </h3>
+<ul>
+    {% for c in champions %}
+        <li> <a href="{{ c.fundraising_page_url }}">{{ c.first_name }} {{ c.last_name }}</a> </li>
+    {% endfor %}
+</ul>
+
+<h3> Thanks for your support </h3>
+<ul>
+    {% for donations in list_of_donations %}
+        {% for donation in donations %}
+            <li> {% if donation.anonymous  %} Anonymous {% else %} {{ donation.first_name }} {{ donation.last_name }} {% endif %} </li>
+        {% endfor %}
+    {% endfor %}
+</ul>
+
+{% endblock %}

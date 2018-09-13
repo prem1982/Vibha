@@ -1,0 +1,13 @@
+{% extends "base2.dmpl" %}
+
+{% block content %}
+
+<form class="design" method='post' action="../create-campaign-message/">
+<table>
+{{form.as_table}}
+</table>
+<input type='hidden' name='confirmed' value='TRUE' />
+<input type='submit' value='Create Campaign Page' />
+</form>
+  
+{% endblock %}

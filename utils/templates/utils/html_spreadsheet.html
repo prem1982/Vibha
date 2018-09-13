@@ -1,0 +1,32 @@
+{% comment %}
+$Id: html_spreadsheet.html 320 2007-04-22 05:48:42Z suriya $
+{% endcomment %}
+
+{% load utils %}
+
+<html>
+<head>
+<style type="text/css">@import "http://wiki.vibha.org/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";</style>
+<script type="text/javascript" src="/vibha-media/js/sorttable.js"></script>
+</head>
+<body>
+    (You can click on the column headers to sort the table) <br />
+<table class="wikitable sortable">
+{% if objectS %}
+    <tr>
+      {% for header in headerS %}
+        <th> {{ header|escape }} </th>
+      {% endfor %}
+    </tr>
+  {% for object in objectS %}
+    <tr>
+      {% for func in funcS %}
+        <td> {% apply func object %} </td>
+      {% endfor %}
+    </tr>
+  {% endfor %}
+{% else %}
+  <p> No object available. </p>
+{% endif %}
+</table>
+</body>

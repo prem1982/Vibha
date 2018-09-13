@@ -1,0 +1,18 @@
+{% comment %}
+$Id: disbursal-notification.txt 346 2007-05-06 18:33:54Z suriya $
+{% endcomment %}
+
+This is an automated mail. A disbursal has been made to a project. The details
+are given below. Please contact office@vibha.org for more information.
+
+Project name:      {{ project }}
+Project Id:        {{ project.id3 }}
+Factsheet:         http://db.vibha.org{{ project.get_factsheet_url }}
+Disbursal URL:     http://db.vibha.org/admin/projects/disbursal/{{ disbursal.id }}/
+Project lead:      {{ lead }} <{{ lead.email }}>
+Disbursal amount:  {{ disbursal.amount }}
+Exchange rate:     {{ disbursal.exchange_rate }}
+Scheduled date:    {{ disbursal.scheduled_date }}
+Disbursed date:    {{ disbursal.disbursed_date }}
+Comments:
+{{ disbursal.comments }}

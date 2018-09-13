@@ -1,0 +1,30 @@
+{% comment %}
+$Id: disbursal-reminder.txt 346 2007-05-06 18:33:54Z suriya $
+{% endcomment %}
+
+This is an automated mail regarding a disbursal to be made to a project. The
+details are given below. Please contact the project lead for more information.
+
+Project name:      {{ project }}
+Project Id:        {{ project.id3 }}
+Factsheet:         http://db.vibha.org{{ project.get_factsheet_url }}
+Project lead:      {{ lead }} <{{ lead.email }}>
+Organization name: {{ organization }}
+Address 1:         {{ organization.address_1 }}
+Address 2:         {{ organization.address_2 }}
+Address 3:         {{ organization.address_3 }}
+City:              {{ organization.city }}
+Pincode:           {{ organization.zipcode }}
+State:             {{ organization.state }}
+FCRA No:           {{ organization.fcra }}
+FCRA Status:       {{ organization.get_fcra_status_display }}
+Bank:              {{ organization.bank_name }}
+Bank address:      {{ organization.bank_address }}
+Bank A/c name:     {{ organization.bank_ac_name }}
+Bank A/c number:   {{ organization.bank_ac_num }}
+Bank Transer info: {{ organization.bank_xfer }}
+Disbursal amount:  {{ disbursal.amount }}
+Scheduled date:    {{ disbursal.scheduled_date }}
+
+Once the money is disbursed, please enter the disbursal date in the projects
+database. The URL is: http://db.vibha.org{{ disbursal.get_admin_url }} .

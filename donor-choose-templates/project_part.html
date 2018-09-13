@@ -1,0 +1,37 @@
+    <div class="clr"></div>
+    	<div class="project_detail">
+	    <div class="left_img">
+		<img width=187 height=172 src="{{ project.get_random_picture.thumbnail.url }}" />
+	    </div>
+	    <div class="right_con">
+		<a href="{% url project_page project.slug %}"><h1>{{ project.name }}</h1></a>
+		<p> {{ project.summary }} <br /><p>
+		<p>Benefits: {{ project.beneficiaries_count }} children</p>
+		<p>Funding Details:</p>
+		{% for pfd in project.projectfundingdetail_set.all %}
+		<p>
+		{{pfd.end_date|date:"M Y"}} : ${{ pfd.budget|floatformat }}
+		</p>
+		{% endfor %}
+		{% comment %}<p>{{ item.project.desc_html|safe }}</p>
+		<table><tr>
+		<td valign="top" align="left">
+		</td>
+		<td valign="top" align="right">
+		<p><u>Project Reports:</u></p>
+		{% for prep in item.project.report_set.all reversed %}
+		<p>
+		<a href="{{ prep.report_file }}">{{ prep.report_date|date:"M Y" }}</a>
+		</p>
+		{% endfor %}
+		</td>
+		</tr></table>
+		{% endcomment %}
+		</p><a href="{% url project_page project.slug %}">View More</a>
+		<div class="add_my_gi_cart">
+		    </div><div class="clr">
+		</div>
+	    </div>
+	    <div class="clr">
+	    </div>
+	</div>

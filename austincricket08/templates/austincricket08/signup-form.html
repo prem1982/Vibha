@@ -1,0 +1,102 @@
+{% extends "base.dmpl" %}
+
+{% load vibhaform %}
+{% load captcha %}
+
+{% block title %} Vibha Austin Cricket Tournament 2011 : Registration {% endblock %}
+
+{% block headerimage %}<div id="topImage"><img  class="nolinkedimage" src="/vibha-media/img/HeaderGreen.png" width="1000" height="90" ></div>{% endblock %}
+
+{% block MediaWikiCommonCss %}{% endblock %}
+
+{% block additionalHeaders %}
+<style type="text/css">@import "/vibha-media/css/vibhaform.css";</style>
+<style type="text/css">@import "/vibha-media/css/autocomplete.css";</style>
+<script src="/vibha-media/js/scriptaculous/prototype.js"     type="text/javascript"></script>
+<script src="/vibha-media/js/scriptaculous/scriptaculous.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript">
+  /*
+   * Switch between choosing credit card and check as a means of
+   * withdrawing money every month.
+   */
+  var toggle_creditcard_bank_fieldset_function = function(event) {
+      /*
+       * id_use_cc_0: Use credit card
+       * id_use_cc_1: Use Bank info
+       */
+      if ($F('id_use_cc_0') != null) {
+        $('htgform-creditcard-info').show();
+        $('htgform-bank-info').hide();
+      } else if ($F('id_use_cc_1') != null) {
+        $('htgform-creditcard-info').hide();
+        $('htgform-bank-info').show();
+      }
+  }
+
+  /*
+   * Disable team name.
+   */
+  var enable_or_disable_team_name = function(event) {
+    /*
+     * id_individual_0: Team
+     * id_individual_1: Individual
+     */
+    if ($F('id_individual_0') != null) {
+        $('id_team_name').enable();
+    }
+    if ($F('id_individual_1') != null) {
+        $('id_team_name').clear();
+        $('id_team_name').disable();
+    }
+  }
+
+  /*
+   * After the document has loaded, add listeners that call the above
+   * functions.
+   */
+  Event.observe(window, 'load', function() {
+    /* Individual/Team field */
+    $('id_individual_0', 'id_individual_1').invoke('observe', 'change', enable_or_disable_team_name);
+    $('id_individual_0', 'id_individual_1').invoke('observe', 'select', enable_or_disable_team_name);
+    $('id_individual_0', 'id_individual_1').invoke('observe', 'click',  enable_or_disable_team_name);
+    enable_or_disable_team_name(null);
+  });
+</script>
+{% endblock %}
+
+{% block contentBox %}
+
+    {% if form.errors %}
+        <p style="font-size: 11pt">Please correct the following errors below (fields shown in red) </p>
+        <!-- {{ form.errors }} -->
+    {% endif %}
+
+    <form class="vibhaform" method="post" action="" >
+        {{ form.dream_event_id }}
+        <fieldset>
+            <legend>Personal information (Captain's or Individual's)</legend>
+                {{ form.first_name|formfield }}
+                {{ form.last_name|formfield }}
+                {{ form.email|formfield }}
+                {{ form.phone|formfield }}
+        </fieldset>
+        <fieldset>
+            <legend>Team/Individual information</legend>
+                {{ form.individual|formfield }}
+                {{ form.team_name|formfield }}
+                {{ form.num_students|formfield }}
+                {{ form.num_non_students|formfield }}
+        </fieldset>
+        <fieldset>
+            <legend>Comments</legend>
+                {{ form.comments|formfield }}
+        </fieldset>
+        {% captcha_field form %}
+
+<p style="text-align: center;">
+        <button type="submit">Submit</button>
+        <button type="reset" >Reset </button>
+</p>
+
+    </form>
+{% endblock %}

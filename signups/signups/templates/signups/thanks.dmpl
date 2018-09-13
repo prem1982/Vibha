@@ -1,0 +1,31 @@
+{% extends "signups/base.dmpl" %}
+
+{% block title %} Vibha : Thank you for signing up {% endblock %}
+
+{% block contentBox %}
+<h2> Thank You </h2>
+
+<p>
+Thank you for your interest in volunteering with Vibha. Our Volunteer Relations
+Team has forwarded your information to the Vibha Action Center based on
+your location. A volunteer from that action center will in touch with
+you shortly.
+</p>
+
+<p>
+Please note that we currently do not have any employment
+opportunities.  If you are in India, we are currently in the process of setting
+up Vibha India Action Centers.
+</p>
+
+<p>
+If you are interested in applying for project funding, please visit our <a
+href="http://wiki.vibha.org/Project_Application">Project Application
+page</a>.
+</p>
+
+<p>
+Best <br />
+Vibha Volunteer Relations.
+</p>
+{% endblock %}

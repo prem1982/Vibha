@@ -1,0 +1,15 @@
+<br />
+<br />
+<br />
+<b>Project Information</b>
+<br /><br />
+{{project.desc}}
+<br /><br />
+Read more about the project at <a href='https://secure.vibha.org/{% url project_page project.slug %}'>https://secure.vibha.org{% url project_page project.slug %} </a>.
+<br /> <br />
+Vibha is a 501(c)(3) registered non-profit, volunteer driven organization.
+{{project.name}} is one of 190 projects Vibha has supported since its
+inception in 1991. Vibha's mission is to educate, empower and enable every
+individual who wishes to make a positive difference in the life of an
+underprivileged child.  Sign up to receive newsletters on Vibha projects by
+sending an email to xpressions@vibha.org.

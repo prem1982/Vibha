@@ -1,0 +1,13 @@
+Dear {{user.first_name}},
+
+Welcome to project-driven fund-raising at Vibha!
+
+You may now login at https://secure.vibha.org/accounts/login/ using your id
+{{user.username}}.
+
+If you have any questions or feedback, contact us at aap@vibha.org.
+
+Sincerely,
+Adopt A Project Team
+Vibha (Help Them Grow Inc)
+

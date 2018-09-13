@@ -1,0 +1,47 @@
+{% extends "base.dmpl" %}
+
+{% load vibhaform %}
+{% load captcha %}
+
+{% block title %} Vibha : Change For Children Signup {% endblock %}
+
+{% block additionalHeaders %}
+<style type="text/css">@import "/vibha-media/css/vibhaform.css";</style>
+{% endblock %}
+
+{% block contentBox %}
+<h2>Change For Children : Signup Form </h2>
+
+<p>
+Thank you for your interest in Vibha's Change For Children Program. Please
+complete the following and submit to sign up for this program
+</p>
+
+    {% if form.errors %}
+        <p> Please correct the following errors below (fields shown in red) </p>
+    {% endif %}
+
+    <form class="vibhaform" method="post" action="">
+        <fieldset>
+            <legend>Personal information</legend>
+                {{ form.first_name|formfield }}
+                {{ form.last_name|formfield }}
+                {{ form.pg_first_name|formfield }}
+                {{ form.pg_last_name|formfield }}
+                {{ form.email|formfield }}
+                {{ form.phone|formfield }}
+                {{ form.address_1|formfield }}
+                {{ form.address_2|formfield }}
+                {{ form.city|formfield }}
+                {{ form.state|formfield }}
+                {{ form.zipcode|formfield }}
+                {{ form.actioncenter|formfield }}
+                {{ form.comments|formfield }}
+                {{ form.receipt|formfield }}
+                {{ form.agreement|formfield }}
+        </fieldset>
+        {% captcha_field form %}
+        <label for="id_submit"></label><button type="submit">Submit</button>
+                                       <button type="reset" >Reset </button>
+    </form>
+{% endblock %}

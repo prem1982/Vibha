@@ -1,0 +1,54 @@
+<p>Hello {{ model.first_name }},</p>
+
+<p>Thank you very much for your interest in volunteering with
+Vibha. Vibha is a volunteer driven organization dedicated to uplifting
+the lives of underprivileged children in India and the US.  Being a
+volunteer at Vibha is fun, a great learning experience!  You can join
+our team of energetic volunteers in your city, or get involved in our
+National teams that work in different strategic functional areas.
+</p>
+<p>
+Learn more about us:
+<br /><br />
+<a href="http://www.youtube.com/helpthemgrow">Vibha on YouTube</a> <br />
+<a href="http://www.facebook.com/pages/Vibha/18359501375">Vibha on Facebook</a> <br />
+<a href="http://vibha.org/xpressions">Vibha Newsletter Xpressions</a> <br />
+<a href="http://vibha.org/vibhascope">Vibha Volunteer Newsletter</a> <br />
+<a href="http://vibhablog.wordpress.com">Vibha Blog</a> <br />
+</p>
+<p>
+Further to assist you in the process of how you can contribute, the
+Volunteer Coordinator of the city nearest to you will
+contact you and provide further information on volunteer opportunities.
+Please discuss to find out how you would like to participate. For more
+information, explore our website at http://www.vibha.org. I look forward
+to your involvement with us to make a bigger difference.
+</p>
+<p>
+Welcome to a great team at Vibha.
+</p>
+<p>
+Thanks Again, <br />
+
+Srinivas Vemulapalli <br />
+Director - Volunteer Relations Team <br />
+<a href="http://www.vibha.org/">http://www.vibha.org</a> <br />
+<a href="mailto:volunteer@vibha.org">volunteer@vibha.org</a> <br />
+</p>
+<p><br />
+=========================================================== <br />
+
+Date:            {{ model.signup_date|date:"D M j H:i:s T Y" }} <br />
+First name:      {{ model.first_name }} <br />
+Last name:       {{ model.last_name }} <br />
+E-mail:          {{ model.email }} <br />
+Location:        {{ model.get_location_display }}{% if model.location_has_no_ac %}, {{ model.other_location }} <br />
+Start new AC?:   {{ model.new_ac|yesno:"Yes,No" }}{% endif %} <br />
+Interests:       {{ model.interests }} <br />
+Phone:           {{ model.phone }} <br />
+Age group:       {{ model.get_age_display }} <br />
+Occupation:      {{ model.get_occupation_display }} <br />
+Introduced by:   {{ model.get_intro_source_display }} <br />
+Comments: <br />
+{{ model.comments|wordwrap:50 }}
+</p>

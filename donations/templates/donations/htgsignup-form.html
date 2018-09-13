@@ -1,0 +1,208 @@
+{% extends "base.dmpl" %}
+
+{% load vibhaform %}
+{% load captcha %}
+
+{% block title %} Vibha : Automatic Donation Program signup {% endblock %}
+
+{% block MediaWikiCommonCss %}{% endblock %}
+
+{% block additionalHeaders %}
+<style type="text/css">@import "/vibha-media/css/vibhaform.css";</style>
+<style type="text/css">@import "/vibha-media/css/autocomplete.css";</style>
+<script src="/vibha-media/js/scriptaculous/prototype.js"     type="text/javascript"></script>
+<script src="/vibha-media/js/scriptaculous/scriptaculous.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript">
+  /*
+   * Switch between choosing credit card and check as a means of
+   * withdrawing money every month.
+   */
+  var toggle_creditcard_bank_fieldset_function = function(event) {
+      /*
+       * id_use_cc_0: Use credit card
+       * id_use_cc_1: Use Bank info
+       */
+      if ($F('id_use_cc_0') != null) {
+        $('htgform-creditcard-info').show();
+        $('htgform-bank-info').hide();
+      } else if ($F('id_use_cc_1') != null) {
+        $('htgform-creditcard-info').hide();
+        $('htgform-bank-info').show();
+      }
+  }
+
+  /*
+   * Use one of the predefined amounts or a custom amount
+   */
+  var enable_or_disable_amount_field = function(event) {
+    if ($F('id_amount_choice_4') != null) {
+      if (event != null) {
+        $('id_amount').clear();
+      }
+      $('id_amount').enable();
+    } else {
+      [ 'id_amount_choice_0', 'id_amount_choice_1', 'id_amount_choice_2', 'id_amount_choice_3', ].each(function(s) {
+        if ($F(s) != null) {
+          $('id_amount').value = $F(s);
+          $('id_amount').disable();
+        }
+      });
+    }
+  }
+
+  /*
+   * After the document has loaded, add listeners that call the above
+   * functions.
+   */
+  Event.observe(window, 'load', function() {
+    /* CC/Bank field */
+    $('id_use_cc_0', 'id_use_cc_1').invoke('observe', 'change', toggle_creditcard_bank_fieldset_function);
+    $('id_use_cc_0', 'id_use_cc_1').invoke('observe', 'select', toggle_creditcard_bank_fieldset_function);
+    $('id_use_cc_0', 'id_use_cc_1').invoke('observe', 'click', toggle_creditcard_bank_fieldset_function);
+    /* Amount field */
+    $('id_amount_choice_0', 'id_amount_choice_1', 'id_amount_choice_2', 'id_amount_choice_3',
+      'id_amount_choice_4').invoke('observe', 'change', enable_or_disable_amount_field);
+    $('id_amount_choice_0', 'id_amount_choice_1', 'id_amount_choice_2', 'id_amount_choice_3',
+      'id_amount_choice_4').invoke('observe', 'select', enable_or_disable_amount_field);
+    $('id_amount_choice_0', 'id_amount_choice_1', 'id_amount_choice_2', 'id_amount_choice_3',
+      'id_amount_choice_4').invoke('observe', 'click', enable_or_disable_amount_field);
+    toggle_creditcard_bank_fieldset_function(null);
+    enable_or_disable_amount_field(null);
+  });
+</script>
+{% endblock %}
+
+{% block contentBox %}
+
+    <noscript>
+        <span class="javascript-not-enabled" style="background-color: #FAD163; padding: 2ex; display: block; text-align: center; font-size: 11pt; margin-left: auto; margin-right: auto;">
+            Enabling Javascript will enhance the usability of this page.
+        </span>
+    </noscript>
+
+<p style="font-size: 8pt; color: #d00000;"> 
+Note: For the protection of
+Vibha donors, your IP address is recorded when you click submit. Vibha
+proactively cooperates with law enforcement agencies in the case of
+any fraudulent activities. If you have any difficulty with this page
+or have any feedback, please email us at <a
+href="mailto:htg@vibha.org">htg@vibha.org</a>.
+</p>
+
+    {% if form.errors %}
+        <p> Please correct the following errors below (fields shown in red) </p>
+        <!-- {{ form.errors }} -->
+    {% endif %}
+
+    <form class="vibhaform" method="post" action="">
+        <fieldset>
+            <legend>Personal information</legend>
+                {{ form.email|formfield }}
+                {{ form.first_name|formfield }}
+                {{ form.last_name|formfield }}
+                {{ form.address_1|formfield }}
+                {{ form.address_2|formfield }}
+                {{ form.city|formfield }}
+                {{ form.state|formfield }}
+                {{ form.zipcode|formfield }}
+                {{ form.country|formfield }}
+                {{ form.phone|formfield }}
+                {{ form.use_cc|formfield }}
+        </fieldset>
+        <fieldset id="htgform-creditcard-info">
+            <legend>Credit card information</legend>
+                {{ form.cc_name|formfield }}
+                {{ form.credit_card|formfield }}
+                {{ form.expr_date|formfield }}
+        </fieldset>
+        <fieldset id="htgform-bank-info">
+            <legend>Bank Account Information</legend>
+                {{ form.bank_name|formfield }}
+                {{ form.aba_number|formfield }}
+                {{ form.account_number|formfield }}
+            </legend>
+        </fieldset>
+        <fieldset>
+            <legend>Matching donations</legend>
+            If your company/organization matches donations, please enter
+            the name here.
+            {{ form.company_name|formfield }}
+            <div class="page_name_auto_complete" id="id_company_name_auto_complete"></div>
+            <script type="text/javascript">
+                new Ajax.Autocompleter("id_company_name",
+                                       "id_company_name_auto_complete",
+                                       "/ajax/companies/",
+                                       { minChars: 2,
+                                         paramName: 'search',
+                                         afterUpdateElement: function(text, li) { $('id_company_id').value = li.id; },
+                                       });
+            </script>
+            {{ form.company_id }}
+        </fieldset>
+
+        {% captcha_field form %}
+        <fieldset>
+            <legend>Donation amount</legend>
+                {{ form.amount_choice|formfield_without_label }}
+                {{ form.amount|formfield }}
+        </fieldset>
+
+        <fieldset>
+	    <legend>Communication Preferences </legend>
+                <table>
+                <tr style="font-size: 8pt;">
+                <td style="border:0px;"> {{ form.paper_receipt }} </td>
+		<td style="border:0px;"> <b> <span style="color: green;">Go
+        Green!</span> </b> E-mail me my receipt. (Check for a paper receipt) </td>
+		</tr>
+                <tr style="font-size: 8pt;">
+                <td  style="border:0px;"colspan="2">		
+		I would like to receive infrequent communication from Vibha regarding the following (uncheck the boxes if you don't want to):
+		</td>
+		</tr>
+                <tr style="font-size: 8pt;">
+                <td style="border:0px;"> {{ form.project_subscription }} </td>
+		<td style="border:0px;"> <b>Projects</b>: Information on Vibha supported projects and how my donation is making a difference. </td>
+		</tr>
+		<tr style="font-size: 8pt;">
+                <td style="border:0px;">{{ form.event_subscription }} </td>
+		<td style="border:0px;"> <b>Events</b>: Information on Vibha occasions and festivities in my area - walk/runs, concerts, dandia, cricket tournaments etc.</td>
+		</tr>
+		</table>
+	</fieldset>
+
+        {% block referringVolunteer %}
+        {% endblock %}
+
+	<fieldset>
+            <legend>Comments</legend>
+            If you are making a donation in honor of someone or you
+            heard about Vibha from someone, please enter their name
+	    and/or other comments below.
+	        {{ form.referrer|formfield }}
+                {{ form.comments|formfield }}
+        </fieldset>
+
+<p style="font-size: 9pt;"> 
+By pressing Submit, I certify that I am authorized to use the credit
+card or bank account in consideration. I also authorize Vibha to
+enroll me in the Help Them Grow-Automated Donation Program and deduct
+my contribution from the account above on a monthly basis.
+</P>
+
+<script type="text/javascript" src="https://seal.thawte.com/getthawteseal?host_name=secure.vibha.org&amp;size=M&amp;lang=en"></script>
+
+<!--
+<center>
+<script src="https://siteseal.thawte.com/cgi/server/thawte_seal_generator.exe">
+</script>
+</center>
+!-->
+
+<p style="text-align: center;">
+        <button type="submit">Submit</button>
+        <button type="reset" >Reset </button>
+</p>
+
+    </form>
+{% endblock %}

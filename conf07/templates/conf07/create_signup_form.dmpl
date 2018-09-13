@@ -1,0 +1,76 @@
+{% extends "conf07/base.dmpl" %}
+
+{% load vibhaform %}
+{% load captcha %}
+
+{% block title %} Vibha : Volunteer Conference Minnesota 2010 Signup {% endblock %}
+
+{% block additionalHeaders %}
+<style type="text/css">@import "/vibha-media/css/vibhaform.css";</style>
+
+<script src="/vibha-media/js/scriptaculous/prototype.js"     type="text/javascript"></script>
+<script src="/vibha-media/js/scriptaculous/scriptaculous.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block contentBox %}
+<p style="text-align: center;"><img
+class="nolinkedimage" src="http://wiki.vibha.org/images/Vibhafinal4.png"> </p>
+
+<h2> Vibha Volunteer Conference 2010 Signup </h2>
+
+<p style="font-size: 10pt;">
+Filling out the form below, confirms your registration for Vibha Volunteer
+Conference 2010.  Registrants are requested to make their own travel
+arrangements. Vibha will not sponsor any registrant's travel requests. Vibha
+volunteers will get preference on accommodation requests.
+</p>
+
+{% if form.errors %}
+    <p style="color: red; font-size: 10pt;">
+    Please correct the errors (marked in red) below.
+    </p>
+{% endif %}
+
+<form class="vibhaform" method="post" action="">
+<fieldset>
+     <legend>Contact Information</legend>
+         {{ form.first_name|formfield }}
+         {{ form.last_name|formfield }}
+         {{ form.ac|formfield }}
+         {{ form.email|formfield }}
+</fieldset>
+<fieldset>
+     <legend>Other Information</legend>
+       {{ form.webcast|formfield }}
+        <div id="attending" style="display:none">
+         {{ form.accomodation|formfield }}
+         {{ form.guests|formfield }}
+         {{ form.pickup|formfield }}
+         {{ form.transportation|formfield }}
+         {{ form.requests|formfield }}
+         {{ form.volunteer|formfield }}
+        </div>
+</fieldset>
+{% captcha_field form %}
+
+<p>
+<label for="id_submit"></label><button type="submit">Submit</button>
+                               <button type="reset">Reset</button>
+</p>
+</form>
+
+<p style="font-size: 10pt;"> For more information please contact <a
+href="mailto:vconference@vibha.org">vconference@vibha.org</a>.
+</p>
+
+<script type="text/javascript" language="javascript">
+    /** Observe the webcast checkbox **/
+    $('id_webcast').observe('click',function(e){
+        if(this.checked)
+            Effect.SlideUp('attending', { duration: 0.5 });
+        else
+            Effect.SlideDown('attending', { duration: 0.5 });
+    });
+</script>
+{% endblock %}
+

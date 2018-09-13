@@ -1,0 +1,15 @@
+{% extends "donorportal/portal-menu.html" %}
+
+{% block optionaldetails %}
+<br/>
+{% if donations %}
+<p> List of all the donations you have made:</p>
+{% endif %}
+{% for item in donations %}
+    {% include "donation_item_part.html" %}
+{% empty %}
+<p> You have not made any donations as yet!</p>
+<p> Choose from one of these <a href="/projectfilter/list/">projects</a> and add a donation to your cart.</p>
+{% endfor %}
+
+{% endblock %}

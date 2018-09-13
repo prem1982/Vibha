@@ -1,0 +1,44 @@
+{% extends "projects/base.dmpl" %}
+
+{% block title %} Vibha : Project listing {% endblock %}
+
+{% block additionalHeaders %}
+{% include "projects/maps/maps.css" %}
+{% include "projects/maps/bigmap.js" %}
+{% endblock %}
+
+{% block bodyTagArguments %}onload="load()" onunload="GUnload()"{% endblock %}
+
+{% block contentBox %}
+    <div id="map" style="width: 634px; height: 700px"></div>
+{% endblock %}
+
+{% block rightBox %}
+<div class="sidebar_head">List View</div>
+<div class="sidebar_content">
+<h3><a href="/projects/">Current Projects</a></h3>
+<h3><a href="/projects/past">Completed Projects</a></h3>
+</div>
+<div class="sidebar_head">Map View</div>
+<div class="sidebar_content">
+
+{% ifequal projects 'current' %}
+<h3>Current Projects</h3>
+<h3><a href="/projects/map/?projects=past">Completed Projects</a></h3>
+<h3><a href="/projects/map/">All Projects</a></h3>
+{% endifequal %}
+
+{% ifequal projects 'past' %}
+<h3><a href="/projects/map/?projects=current">Current Projects</a></h3>
+<h3>Completed Projects</h3>
+<h3><a href="/projects/map/">All Projects</a></h3>
+{% endifequal %}
+
+{% ifequal projects 'all' %}
+<h3><a href="/projects/map/?projects=current">Current Projects</a></h3>
+<h3><a href="/projects/map/?projects=past">Completed Projects</a></h3>
+<h3>All Projects</h3>
+{% endifequal %}
+</div>
+{% endblock %}
+

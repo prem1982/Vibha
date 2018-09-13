@@ -1,0 +1,44 @@
+{% extends "dreammile-base.html" %}
+
+{% load champion %}
+
+{% block contentBox %}
+<h2> {{ champion }}'s fundraising page </h2>
+<center>
+    <a href="{{ champion.donation_page_url }}"><img src="http://wiki.vibha.org/images/Active_donate_blue.gif" alt="Donate here" /></a>
+</center>
+
+<br />
+
+{% if champion.message %}
+{{ champion.message|safe }}
+{% else %}
+Thank you for coming here. I am participating in the <a
+href="http://wiki.vibha.org/Dream_Mile_08:Austin_Champion">Vibha
+Champion</a> program. Vibha is a non-profit organization that supports
+child-development projects in the areas of Education, Vocation training,
+Care of physically and/or mentally challedged children, and Rescue and
+rehabilitation of children in vulnerable conditions. The Austin Action
+Center has worked with projects like
+<a href="http://projects.vibha.org/projects/uday-pathshala/">Gramin Shiksha Kendra (GSK)</a>,
+<a href="http://projects.vibha.org/projects/aural-education-for-the-hearing-impaired/">AURED</a>,
+<a href="http://projects.vibha.org/projects/educating-and-empowering-fishermen-community-child/">SEA</a>,
+<a href="http://projects.vibha.org/projects/community-based-rehabilitation-for-mentally/">RMKM</a>,
+<a href="http://projects.vibha.org/projects/ariviyal-anandnam/">Ariviyal Anandam</a>, and
+<a href="http://projects.vibha.org/projects/education-training-program-deprived-mentally-chall/">Prayas</a>.
+{% endif %}
+
+
+
+{% if donations %}
+<h3> Thanks for your support </h3>
+<ul>
+    {% for donation in donations %}
+        <li> {% if donation.anonymous  %} Anonymous {% else %} {{ donation.first_name }} {{ donation.last_name }} {% endif %} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{{ champion|goal_chart }}
+
+{% endblock %}

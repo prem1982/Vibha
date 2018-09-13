@@ -1,0 +1,40 @@
+{% extends "base.dmpl" %}
+
+{% block title %} Vibha - Matching Donations {% endblock %}
+
+{% block additionalHeaders %}
+<style type="text/css">@import "/vibha-media/css/listnav.css";</style>
+<script type="text/javascript" src="/vibha-media/js/jquery.min.js"></script>
+<script type="text/javascript" src="/vibha-media/js/jquery.listnav.min-2.1.js"></script>
+{% endblock %}
+
+{% block contentBox %}
+
+<h2>Matching Donations</h2>
+<p>
+Vibha (registered as "Help Them Grow") is a 501-c(3) registered organization with the Tax id: 22-3122761. Most companies that typically match the donations of their employees do that for Vibha as well. So, if you have already not done that for your donation, please do it now.<br />
+</p>
+<ol>
+<li style="list-style-type:decimal">You can contact your HR department to find out if your company, as a policy, matches your donations or not.</li><br />
+
+<li style="list-style-type:decimal">If you know that your company typically matches the donations and if your company is not listed below, please go ahead and send your matching donation form  to us (or follow any other internal process you may have in your company) and we will do whatever is necessary to make sure that your donations are matched by your company. </li><br />
+
+<li style="list-style-type:decimal">PLEASE NOTE - Vibha is officially registered as Help Them Grow (Doing Business as Vibha). So, within your company, it may be listed with either name.</li> <br />
+</ol>
+<p>&nbsp;</p>
+<p>
+Here is the list of companies that have already matched the donations of their employees to Vibha: <br /><br />
+</p>
+
+<div id="cList-nav"></div>
+<ul id="cList">
+{% for company in companieS %}
+<li>{{company.name}}</li>
+{% endfor %}
+</ul>
+<p>&nbsp;<br /><br /></p>
+
+<script type="text/javascript">
+$('#cList').listnav();
+</script>
+{% endblock %}

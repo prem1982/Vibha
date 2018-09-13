@@ -1,0 +1,24 @@
+  <div class="project_detail">
+    <div class="left_img"> 
+      <img src="{{item.project.get_random_picture.thumbnail.url}}" alt="{{item.project}}" width="112" height="112" />
+    </div>
+    <div class="right_con"><strong><a href="{% url project_page item.project.slug %}" >{{ item.project.name }}</a></strong>
+      <table width="95%" border="0" align="left" cellpadding="2" cellspacing="0">
+        <tr>
+          <td width="72%"><p>{{ item.project.summary }}<br /></p>
+            <a href="{% url project_page item.project.slug %}">View More</a><br />
+            <a href="{% url portal_cart_delete  item.pk %}">Delete from my giving cart</a>
+            {% if item.campaign %}
+              <p>For the
+              <a href="{{ item.campaign.get_absolute_url }}">Campaign</a> by <a href="{{item.campaign.user.get_profile.get_absolute_url}}">{{item.campaign.user.username}}</a>
+            {% endif %}
+              </p>
+          </td>
+          <td width="28%" align="right">$<input name="amount" type="textbox" size=5 value="{{ item.amount }}">
+          </td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+    </div>
+    <div class="clr"></div>
+  </div>

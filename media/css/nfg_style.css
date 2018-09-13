@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/* Controls width of your form */
+.e2ma_signup_form {
+    width:220px;
+}
+
+/* Controls the style, width, and font style of the text input, select
+ * and textarea fields */
+.e2ma_signup_form input[type=text],
+.e2ma_signup_form textarea,
+.e2ma_signup_form select { 
+    border: 0px;
+    color: #3B3B3B;
+    float: left;
+    font-style: italic;
+    height: 20px;
+    padding: 5px 3px 3px 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    width: 137px;
+
+            }
+
+            /* Controls width, style, and padding of the table border
+             * outlines around individual member fields */
+.e2ma_signup_form_row {
+    border:0px solid #ddd;
+    padding-left:5px
+        }
+
+        /* Controls style and formatting of welcome message */
+        .e2ma_signup_message {
+            font-family:Verdana, sans-serif;
+            font-size:10px;
+            color:#333333;
+                }
+
+                /* Controls spacing and style for any text used to list
+                 * options under multiple choice fields) */
+.e2ma_signup_form_element {
+    font-family:verdana;
+    font-size:0px;
+    color:#333333;
+        }
+
+/* Controls the alignment of "submit" and "clear" buttons */
+.e2ma_signup_form_button_row {
+    padding-top:40px;
+    margin-left:-50px;
+}
+
+/* Controls display of the "clear" button */
+.e2ma_signup_form_button_row #e2ma_signup_reset_button {
+    display: none;
+}
+
+/*Overrides browser default settings for button styles (for additional
+ * control of "submit" and "clear" buttons) */
+.e2ma_signup_form_button { 
+    font-size: 14px;
+    color:#fffefb;
+    border: 0px;
+    background-color:#553870;
+    clear: both;
+    height: 29px;
+    width: 80px;
+}
+

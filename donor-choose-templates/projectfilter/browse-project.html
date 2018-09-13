@@ -1,0 +1,21 @@
+{% extends "base2.dmpl" %}
+
+{% block content %}
+
+<div id="listpage_menu" align="left">
+    <form action="." method="post">
+    {{ form1 }}
+    <input type="submit" value="Search" />
+    </form>
+    </div>
+    <div class="clr"></div>
+    {% for project in projects_list %}
+    {% include "projectfilter/project_frag.dmpl" %}
+    {% endfor %}
+
+    <p><br /></p>
+        <p><br /></p>
+            <p><br /></p>
+                <p><br /></p>
+                    <p><br /></p>
+{% endblock content %}

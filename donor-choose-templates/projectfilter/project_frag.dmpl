@@ -1,0 +1,27 @@
+<div class="project_detail">
+	<div class="left_img">
+		<a href="{% url project_page project.slug %}">
+		<img width=128 height=96 style="margin:10px; padding:5px; border: 1px solid #999" src="{{project.get_random_picture.thumbnail.url}}" />
+		</a>
+	</div>
+	<div class="right_con">
+		<a href="{% url project_page project.slug %}"><h1 style="background:None;font-weight:bold">{{ project.name }}</h1></a>
+		<p> {{ project.summary }} <br />
+		</p>
+		<a href="{% url project_page project.slug %}">View More</a>
+		<div class="add_my_gi_cart">
+			<form action="{% url portal_cart %}" method="post">		
+				<input type="hidden" name="pid" value="{{ project.id }}">		    
+				<input type="image" src="/vibha-media/portal/images/add-cart.gif" />
+			</form>		
+		</div>
+		<div class="add_my_gi_cart">
+			<form action="{% url portal_create_campaign_start %}" method="post">
+				<input type="hidden" name="pid" value="{{ project.id }}">
+				<input type="image" src="/vibha-media/portal/images/but_raise-fund.gif" />
+			</form>			
+			</div><div class="clr">
+		</div>
+	</div>
+	<div class="clr"></div>
+</div>	

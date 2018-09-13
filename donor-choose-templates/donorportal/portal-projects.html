@@ -1,0 +1,18 @@
+{% extends "donorportal/portal-menu.html" %}
+
+{% block optionaldetails %}
+<br/>
+{% block info %}
+{% if projects %}
+<p>List of all projects you have either donated to or campaigned to:
+</p>
+{% endif %}
+{% endblock %}
+{% for project in projects %}
+        {% include "project_part_simple.html" %}
+{% empty %}
+<p> You have not donated or started a campaign for any project. </p>
+<p> Choose from one of these <a href="/projectfilter/list/">projects</a> and add a donation to your cart.</p>
+{% endfor %}
+
+{% endblock %}

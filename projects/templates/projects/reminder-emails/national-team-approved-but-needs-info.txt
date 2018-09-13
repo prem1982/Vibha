@@ -1,0 +1,27 @@
+{% comment %}
+$Id: disbursal-reminder.txt 346 2007-05-06 18:33:54Z suriya $
+{% endcomment %}
+
+This is an automated mail regarding a project.
+
+ISSUE: This project has been approved by the national projects
+team. But one or more action items are pending and/or the NTT for this
+project is not available in the database.
+
+The details are given below.
+
+Project name: {{ project }}
+Project Id:   {{ project.id3 }}
+
+This action item url is http://db.vibha.org{{ action_item.get_admin_url }}. 
+Please resolve all action items for this project and add the NTT to the
+database as soon as possible. Mark all action items (including this
+one) as completed in the database to avoid another nag-o-gram!
+
+If you believe this email or action item is in error, or have issues
+related to the project database, please contact the IT Help Desk at
+ithelpdesk@vibha.org
+
+Regards,
+Vibha Projects Team
+

@@ -1,0 +1,8 @@
+{% if form.errors %}
+<p class="errorlist">Invalid credentials entered. Sorry, couldn't sign you in.</p>
+{% endif %}
+<form action="." method="post">
+    <input type="text" name="username" value="" id="username" />
+    <input type="password" name="password" value="" id="password" />
+    <input type="submit" value="login" />
+</form>

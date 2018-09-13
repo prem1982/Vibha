@@ -1,0 +1,18 @@
+{% extends "projects/base.dmpl" %}
+
+{% block title %} Vibha : Thank you for contacting us {% endblock %}
+
+{% block contentBox %}
+<h2> Thank You </h2>
+
+<p>
+Thank you for your interest in Vibha. A volunteer involved with this
+project will be in touch with you shortly.
+</p>
+
+
+<p>
+Regards, <br />
+Vibha Project Team
+</p>
+{% endblock %}

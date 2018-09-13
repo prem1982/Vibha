@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }} | {% trans 'Vibha DB site admin' %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Vibha database administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+{% comment %}
+$Id: base_site.html 108 2006-08-10 03:08:50Z suriya $
+
+This is the file django/contrib/admin/templates/admin/base_site.html from the
+django source directory. This is modified to show Vibha in the header.
+{% endcomment %}

@@ -1,0 +1,47 @@
+Dear {{ model.captain_name }},
+
+We have received your registration for Vibha Austin's Triva Guru quiz contest.
+Please complete your registration by paying your team's registration fee at
+this URL: https://secure.vibha.org/{{ model.paypal_redirect_url }}
+
+If you have any questions, feel free to contact us through
+
+      Web:    http://austin.vibha.org/triviaguru
+      E-mail: info@austin.vibha.org
+      Phone:  (512) 203 5828
+
+Thank you for registering. Your participation in this event will help support
+Vibha's grassroots level initiatives in India and the US
+(http://vibha.org/projects). With generous support from patrons like you, we
+have been able to positively impact the lives of more than 100,000
+disadvantaged children since 1991. We hope that you will continue to support
+Vibha as we strive to reach many more children who are in dire need of care.
+Following are a few more easy ways you can help us provide care for
+underprivileged children.
+
+1. Sign up for our Help Them Grow program and donate an amount of your
+   choice monthly. More details at http://www.vibha.org/htg
+
+2. You can also support Vibha while celebrating successes in your life
+   through the Vibha Dream Registry. More details at
+   http://www.vibha.org/dreamregistry
+
+Sincerely,
+Richa Tiwari
+Volunteer,
+Vibha Austin
+
+====================================================================
+
+Registration details
+
+Registration Date: {{ model.signup_date|date:"D M j H:i:s T Y" }}
+Captain Name:      {{ model.captain_name }}
+E-mail:            {{ model.captain_email }}
+Phone:             {{ model.captain_phone }}
+Team name:         {{ model.team_name }}
+Team Member 2:     {{ model.member2_name }}
+Team Member 3:     {{ model.member3_name }}
+Students:          {{ model.num_students }}
+Non-students:      {{ model.num_non_students }}
+Comments:          {{ model.comments }}

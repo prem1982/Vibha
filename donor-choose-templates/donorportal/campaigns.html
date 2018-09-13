@@ -1,0 +1,14 @@
+{% extends "base2.dmpl" %}
+{% block title %}
+List of Campaigns
+{% endblock %}
+{% block content %}
+    {% if successfull %}
+        <p>List of all successful campaigns:(<a style="font-size:small" href="{% url portal_campaign_list %}">Show active campaigns</a>)</p>    </p>
+    {% else %}
+        <p>List of all active campaigns: (<a style="font-size:small" href="?show=successfull">Show successful campaigns</a>)</p>    
+    {% endif %}
+    {% for campaign in campaigns %}
+        {% include "campaign_part.html"%}
+    {% endfor %}
+{% endblock %}

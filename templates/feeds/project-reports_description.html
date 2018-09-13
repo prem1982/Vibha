@@ -1,0 +1,8 @@
+<strong>Project:</strong> {{ obj.project }} <br />
+<strong>Description:</strong> {{ obj.desc }} <br />
+<strong>Report date:</strong> {{ obj.report_date|date:"Y-m-d" }} <br />
+{% if obj.show %}
+<a href="{{ obj.get_report_file_url_custom }}">Download report</a>
+{% else %}
+Report is not public
+{% endif %}

@@ -1,0 +1,62 @@
+{% extends "base.dmpl" %}
+
+{% block title %} Vibha Dream Registry for {{ event.honoree_first_name }} {{ event.honoree_last_name }} {% endblock %}
+
+{% block contentBox %}
+  {% if authenticated %}
+    <p>
+      <a href="{{ event.get_admin_url }}" target="_blank">Change details about this event</a>
+    </p>
+  {% endif %}
+
+  {% ifnotequal event.status 1 %}
+    <p>
+    This event has not yet been confirmed by Vibha.
+    </p>
+  {% else %}
+    <h2> {{ event.short_title }} </h2>
+    <h3> Name of the Honoree </h3>
+    <p> {{ event.honoree_first_name }} {{ event.honoree_last_name }} </p>
+    <h3> Event Date </h3>
+    <p> 
+    {% if event.display_date %}
+    {{ event.display_date }}
+    {% else %}
+    {{ event.event_date|date:"F d, Y" }} 
+    {% endif %}
+    </p>
+    {% if event.url %}
+    <h3> URL </h3>
+    <p> <a href="{{ event.url }}" target=_blank>{{ event.url }}</a> </p>
+    {% endif %}
+    {% if event.image %}
+    <p> <img src="{{event.image.url}}" height=240}}></img> </p>  
+    {% endif %}
+    <h3> Invitation </h3>
+
+    {{ event.message|safe }}
+
+    <h3><a href="{{ event.donation_page_url }}">Make a donation in honor of
+    {{ event.honoree_first_name }}.</a></h3>
+
+    <p> All donations made through Vibha Dream Registry benefit child development projects supported by Vibha which are listed <a href="http://www.vibha.org/projects">here</a>. Donations are tax-exempt in the US.</p>
+
+<!--
+    <h3> Other Ways to Make a Difference </h3>
+    <p> <a href="http://www.vibha.org/volunteer">Volunteer with Vibha</a> | <a href="http://wiki.vibha.org/Get_Involved_Action_Centers">Participate at your local Action Center</a> </p>
+    <p> All donations to Vibha a tax-exempt in the US </p>
+!-->
+
+  {% endifnotequal %}
+{% endblock %}
+
+{% block rightBox %}
+  {% ifequal event.status 1 %}
+    <p>
+    <strong>
+    <a href="{{ event.donation_page_url }}">Make a donation in honor of {{ event.honoree_first_name }}.</a>
+    </strong>
+    </p> <br/>
+    <a href="{{ event.donation_page_url }}"><img src="/vibha-media/img/donate_but.jpg" width="300"></a>
+  {% endifequal %}
+{% endblock %}

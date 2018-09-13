@@ -1,0 +1,42 @@
+{% extends "base2.dmpl" %}
+
+
+{% block title %}
+Campaign for {{ campaign.project.name }} by {{ campaign.user.username }}
+{% endblock %}
+
+{% block content %}
+<h3 style="color:#d22">
+{% ifequal campaign.how_completed 'Successful' %}
+    This campaign was successful in collecting the target amount and is now completed. You can not donate to this campaign at this time.
+{% endifequal %}
+{% ifequal campaign.how_completed 'Ended' %}
+    This campaign has ended. You can not donate to this campaign at this time.
+{% endifequal %}
+</h3>
+
+
+{% include "campaign_part.html" %}
+<table>
+<tr>
+<td> <p> Number of Donors to this campaign : </p></td>
+<td align="right"><p>{{ campaign.donation_set.count }}</p></td>
+</tr>
+{% for donation in donations %}
+    <tr><td>
+    {% with donation.user.get_profile as profile %}
+        <table class="design-table">
+        {% if donation.master.get.anonymous %}
+        Anonymous Donor
+        {% else %}
+        {% include "profiles/profile_info.html" %}
+        {% endif %}
+        </table>
+    {% endwith %}
+    </td>
+    <td align="right" width="200px"><p>${{donation.amount}}</p>
+    </td></tr>
+{% endfor %}
+</table>
+
+{% endblock %}

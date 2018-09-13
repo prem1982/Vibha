@@ -1,0 +1,66 @@
+{% extends "projects/base.dmpl" %}
+
+{% load paginator %}
+{% load utils %}
+
+{% block title %} Vibha : Project listing {% endblock %}
+
+{% block additionalHeaders %}
+{% include "css/paginator.css" %}
+{% endblock %}
+
+{% block contentBox %}
+
+  <p> This Projects list (arranged alphabetically) comprises of all projects
+  supported by Vibha since 2003. Some organisation names are in duplicate as
+  we have supported different projects under the same organisation.  </p>
+
+  {% if project_list %}
+    <div id="project_list">
+    <table>
+      <tr class="tbl_head">
+        <td></td>
+        <td> Organisation / Project Name </td>
+        <td> Project Summary </td>
+        <td> Status </td>
+      </tr>
+      {% for project in project_list %}
+          <tr class="{% cycle tbl_row1,tbl_row2 %}">
+            <td> {{ previous|multiply:results_per_page|add:forloop.counter }} </td>
+            <td> <a href="{{ project.get_absolute_url }}">{{ project.name }}</a>, {{ project.organization }} </td>
+            <td> {{ project.summary }} </td>
+            <td> {{ project.status_string }}  </td>
+          </tr>
+      {% endfor %}
+    </table>
+    </div>
+  {% else %}
+      <p>No project available.</p>
+  {% endif %}
+
+{% if is_paginated %}<div class="paginator">{% paginator 10 %}</div>{% endif %}
+
+{% endblock %}
+
+{% block rightBox %}
+{% ifequal projects 'current' %}
+<div class="sidebar_head">List View</div>
+<div class="sidebar_content">
+<h3>Current Projects </h3>
+<h3><a href="/projects/past">Completed Projects</a></h3>
+</div>
+<div class="sidebar_head">Map View </div>
+<div class="sidebar_content"><a href="/projects/map/?projects=current"><img src="/vibha-media/img/mapthumbnail.png" alt="View on map" style="border:0px;"></a></div>
+{% endifequal %}
+
+{% ifequal projects 'past' %}
+<div class="sidebar_head">List View</div>
+<div class="sidebar_content">
+<h3><a href="/projects/">Current Projects</a></h3>
+<h3>Completed Projects</h3>
+</div>
+<div class="sidebar_head">Map View </div>
+<div class="sidebar_content"><a href="/projects/map/?projects=past"><img src="/vibha-media/img/mapthumbnail.png" alt="View on map" style="border:0px;"></a></div>
+{% endifequal %}
+
+{% endblock %}

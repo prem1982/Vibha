@@ -1,0 +1,33 @@
+{% comment %}
+$Id: disbursal-reminder.txt 346 2007-05-06 18:33:54Z suriya $
+{% endcomment %}
+
+Dear Project Lead,
+
+Your project is up for renewal. There will be a project renewal call
+on every Wednesday at 6pmPST. Please check your calender and let Vivek
+know the date when you want to discuss your project.
+
+Please ensure that you have all the below documents ready for renewal.
+1. Project Renewal Presentation
+2. Last Year's annual report (or other reports)
+3. Last Year's Fund Utilization Report (audited or un-audited, either is fine)
+4. Next Year's proposal/budget (the budget should show comparison of
+previous year's vs next year so that its easy to compare and discuss).
+5. Monitoring Report.
+
+Also please upload all the documents in advance to the project db so
+that everyone has it.
+
+The details are given below.
+
+Project name: {{ project }}
+Project Id:   {{ project.id3 }}
+
+If you believe this email or action item is in error, or have issues
+related to the project database, please contact the IT Help Desk at
+ithelpdesk@vibha.org
+
+Regards,
+Vibha Projects Team
+

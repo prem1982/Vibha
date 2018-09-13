@@ -1,0 +1,923 @@
+@charset "utf-8";
+body {
+	background-color: #e6e7e9;
+	background-image: url(/vibha-media/img/aap/bg.png);
+	background-repeat: repeat-x;
+	background-position: top;
+	margin: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#737373;
+}
+
+a {
+	color:#553870;
+	text-decoration:none;
+	
+}
+img {
+	border:none;
+}
+
+h1 {
+	color:#553870;
+	font-size:16px;
+	padding:0px;
+	margin:0px;
+}
+
+#notification {
+    padding:5px;
+    margin-bottom:10px;
+    background: #E0FFB8;
+    border: 1px solid #94DA3A;
+    font-size:1.4em;
+}
+
+.clear {
+	clear:both;
+}
+
+.wrapper {
+	width:981px;
+	margin-left:auto;
+	margin-right:auto;
+	
+}
+
+.footer {
+		width:981px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:20px;
+	margin-bottom:40px;
+	padding-left:15px;
+	padding-right:15px;
+	
+}
+
+.footer .padding {
+	padding-left:15px;
+	padding-right:15px;
+}
+
+.header {
+	height:222px;
+	background-image:url(/vibha-media/img/aap/temp_home_03.png);
+	background-repeat:no-repeat;
+}
+
+.fl {
+	float:left;
+}
+
+.fr {
+	float:right;
+}
+
+.menu_container {
+	
+}
+
+.link_container {
+	float:left;
+	min-width:50px;
+	height:70px;
+	vertical-align:top;
+	padding-top:20px;
+	text-align:center;
+	padding-left:7px;
+	padding-right:7px;
+}
+
+.link_container:hover {
+	background-repeat:no-repeat;
+	background-position:center top;
+	background-image: url(/vibha-media/img/aap/hover_nav.png);
+	cursor:pointer;
+}
+
+.active_link_container a{
+    font-style:italic;
+	float:left;
+	min-width:50px;
+	height:70px;
+	vertical-align:top;
+	padding-top:20px;
+	text-align:center;
+	padding-left:7px;
+	padding-right:7px;
+	background-repeat:no-repeat;
+	background-position:center top;
+	background-image: url(/vibha-media/img/aap/hover_nav.png);
+	cursor:pointer;
+	color:#575757;
+	font-weight:bold;
+}
+
+.link_container:hover a {
+	color:#575757;
+	font-weight:bold;
+}
+
+.login_container {
+	float:right;
+	min-width:50px;
+	height:70px;
+	vertical-align:top;
+	text-align:center;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+@font-face {
+	font-family: AGFOR24;
+	src: url('../fonts/AGFOR24.ttf');
+}
+
+.link_container a {
+	text-decoration:none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:13px;
+	font-weight:normal;
+	color:#737373;
+	font-style: italic;
+}
+
+.link_sep {
+	background-image:url(/vibha-media/img/aap/nav_sep.png);
+	width:2px;
+	height:54px;
+
+	float:left;
+	background-repeat:no-repeat;
+}
+
+
+
+.container {
+	
+}
+
+.container_top {
+	background-image:url(/vibha-media/img/aap/temp_home_05.png);
+	height:31px;
+	background-repeat:no-repeat;
+}
+
+.container_left {
+	
+	background-image:url(/vibha-media/img/aap/temp_home_08.png);
+	background-repeat:no-repeat;
+	background-position:top;
+    margin-top:1px;
+	width:14px;
+	float:left;
+	min-height:400px;
+}
+
+.container_right {
+	background-image:url(/vibha-media/img/aap/temp_home_07.png);
+	width:14px;
+	background-position:top;
+	background-repeat:no-repeat;
+	float:left;
+	min-height:400px;
+}
+
+.container_center {
+	background-image:url(/vibha-media/img/aap/temp_home_09.png);
+	width:953px;
+	background-repeat:no-repeat;
+	background-position:top;
+	float:left;
+	min-height:400px;
+	background-color:#FFF;
+	padding-bottom:20px;
+}
+
+
+
+.nav_left {
+	width:173px;
+	margin-left:28px;
+	float:left;
+}
+
+.nav_left .nav_header_container {
+	background-image:url(/vibha-media/img/aap/temp_home_content_18.png);
+	width:173px;
+	height:44px;
+	background-repeat:no-repeat;
+	position:relative;
+	top: 8px;
+		font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+	text-align:center;
+
+	
+}
+
+.nav_left .nav_link_container {
+	background-image:url(/vibha-media/img/aap/temp_home_content_21.png);
+	width:173px;
+	height:33px;
+	vertical-align:middle;
+	text-align:center;
+	border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #FFF;
+	border-bottom-color: #FFF;
+}
+
+.link_padding {
+	padding-top:10px;
+}
+
+.nav_link_container a {
+	text-decoration:none;
+	color:#553870;
+}
+
+.nav_link_container a:hover {
+	font-weight:bold;
+	
+}
+
+.nav_header_container a, .nav_header_container2 a {
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+	text-decoration:none;
+}
+
+.nav_left .nav_header_container2 {
+	background-image:url(/vibha-media/img/aap/temp_home_content_31.png);
+	width:173px;
+	height:44px;
+	background-repeat:no-repeat;
+	position:relative;
+	top: 8px;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+	text-align:center;
+	
+}
+
+.optin_container {
+	height:134px;
+	background-color:#e9e9e9;
+		border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #FFF;
+	border-bottom-color: #FFF;
+	text-align:center;
+	
+}
+
+.optin_container_padding {
+	padding:10px;
+}
+
+.input_optin_container {
+	margin-top:10px;
+	margin-bottom:10px;
+	height:37px;
+}
+
+.input_optin_container .input_left {
+	background-image:url(/vibha-media/img/aap/temp_home_content_44.png);
+	width:16px;
+	height:37px;
+	background-repeat:no-repeat;
+	float:left;
+}
+
+.input_optin_container .input_mid {
+	background-image:url(/vibha-media/img/aap/temp_home_content_45.png);
+	width:119px;
+	height:37px;
+	background-repeat:no-repeat;
+	float:left;
+}
+
+.input_optin_container .input_mid input {
+	background:none;
+	width:119px;
+	height:37px;
+	border:none;
+	color:#848484;
+	font-style:italic;
+}
+
+.input_optin_container .input_right {
+	background-image:url(/vibha-media/img/aap/temp_home_content_46.png);
+	width:15px;
+	height:37px;
+	background-repeat:no-repeat;
+	float:left;
+}
+
+.search_container {
+	float:right;
+	width:192px;
+	margin-top:10px;
+}
+
+.search_container .search_left {
+	background-image:url(/vibha-media/img/aap/search_1.png);
+	width:36px;
+	height:38px;
+	float:left;
+	background-repeat:no-repeat;
+}
+
+.search_container .search_mid {
+	background-image:url(/vibha-media/img/aap/search_2.png);
+	width:117px;
+	height:38px;
+	float:left;
+	background-repeat:no-repeat;
+	
+}
+
+.search_container .search_mid input {
+	width:117px;
+	height:38px;
+	background:none;
+	border:none;
+	color:#000;
+    font-size:18px;	
+}
+
+.search_container .search_right {
+	width:39px;
+	height:38px;
+	float:left;
+}
+
+.content {
+	float:left;
+
+}
+
+.moveup {
+	position:relative;
+	top:-80px;
+}
+
+.home_image_container {
+	
+}
+
+.home_image_container .box1 {
+	width:250px;
+	height:202px;
+	float:left;
+}
+
+.home_image_container .box1 .box_description {
+	background-image:url(/vibha-media/img/aap/homepage-images_05.png);
+	background-repeat:no-repeat;
+	width:250px;
+	height:115px;
+}
+
+.home_image_container .box2 {
+	width:240px;
+	height:202px;
+	float:left;
+}
+
+.home_image_container .box2 .box_description {
+	background-image:url(/vibha-media/img/aap/homepage-images_06.png);
+	background-repeat:no-repeat;
+	width:240px;
+	height:115px;
+}
+
+.home_image_container .box3 {
+	width:248px;
+	height:202px;
+	float:left;
+}
+
+.home_image_container .box3 .box_description {
+	background-image:url(/vibha-media/img/aap/homepage-images_07.png);
+	background-repeat:no-repeat;
+	width:248px;
+	height:115px;
+}
+
+.home_image_container .padding {
+	padding-left:20px;
+	padding-top:10px;
+	padding-bottom:15px;
+	padding-right:10px;
+	color:#FFF;
+	text-align: justify;
+}
+
+.project_container {
+	width:735px;
+
+	
+}
+
+.moveup .project_container {
+	width:735px;
+	margin-top:200px;
+	
+}
+
+.project_container .top {
+	background-image:url(/vibha-media/img/aap/table_content_01.png);
+	width:735px;
+	height:17px;
+	background-repeat:no-repeat;
+}
+
+.project_container .top2 {
+		background-image:url(/vibha-media/img/aap/table_content_02.png);
+	width:735px;
+	height:1px;
+	background-repeat:no-repeat;
+}
+
+.project_container .left {
+	background-image:url(/vibha-media/img/aap/table_content_05.png);
+	width:20px;
+	height:358px;
+	background-repeat:no-repeat;
+	float:left;
+	background-position:top;
+	
+	
+}
+
+.project_container .mid {
+	background-image:url(/vibha-media/img/aap/table_content_06.png);
+	width:523px;
+	height:358px;
+	float:left;
+	background-repeat:no-repeat;
+}
+.project_container .primary_image_container {
+	width:523px;
+	height:345px;
+	overflow:hidden;
+    margin-top:-125px;	
+}
+.project_container .primary_image_container img {
+	min-width:523px;
+	height:auto;
+}
+
+.project_container .mid2 {
+	width:174px;
+	height:358px;
+	float:left;
+}
+
+.project_container .mid2 .header1 {
+	background-image:url(/vibha-media/img/aap/table_content_03.png);
+	width:174px;
+	height:32px;
+	background-repeat:no-repeat;
+}
+.project_container .mid2 .header2 {
+	background-image:url(/vibha-media/img/aap/table_content_08.png);
+	width:174px;
+	height:32px;
+	background-repeat:no-repeat;
+}
+
+.project_container .mid2 .header1 .padding, .project_container .mid2 .header2 .padding {
+	padding-top:5px;
+	padding-left:10px;
+	color:#FFF;
+	font-size:16px;
+}
+
+.project_container .mid2 .contentmid {
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+	font-size:14px;
+}
+
+.project_container .mid2 .contentmid a {
+	font-size:14px;
+	text-decoration:none;
+	color:#553870;
+}
+
+.raised_gage_container {
+	width:161px;
+	height:26px;
+	margin-bottom:5px;
+}
+
+.raised_gage_container .left {
+	background-image:url(/vibha-media/img/aap/raised_gage_01.png);
+	width:15px;
+	height:26px;
+	background-repeat:no-repeat;
+	float:left;
+}
+
+.raised_gage_container .mid {
+	background-image:url(/vibha-media/img/aap/raised_gage_03.png);
+	height:26px;
+	background-repeat:repeat-x;
+	width:137px;
+	float:left;
+}
+
+.raised_gage_container .mid .fill {
+	background-image:url(/vibha-media/img/aap/raised_gage_02.png);
+	background-repeat: repeat-x;
+	height:26px;
+}
+
+.raised_gage_container .mid .fill .padding {
+	padding-top:5px;
+	padding-left:3px;
+	color:#553870;
+	font-size:10px;
+}
+
+.raised_gage_container .right_rc {
+	background-image:url(/vibha-media/img/aap/raised_gage_04.png);
+	width:9px;
+	height:26px;
+	float:left;
+	background-repeat:no-repeat;
+}
+	
+
+.project_container .right {
+	background-image:url(/vibha-media/img/aap/table_content_04.png);
+	width:18px;
+	height:358px;
+	background-repeat:no-repeat;
+	float:left;
+	background-position:top;
+}
+
+.project_container .bottom_content {
+	background-image:url(/vibha-media/img/aap/table_content_14.png);
+	width:735px;
+	height:92px;
+	background-repeat: no-repeat;
+}
+
+
+
+.project_container .bottom {
+	background-image:url(/vibha-media/img/aap/table_content_15.png);
+	height:23px;
+	width:735px;
+	background-repeat:no-repeat;
+}
+
+.transparent_overlay {
+	background-image:url(/vibha-media/img/aap/table_content_image_trans.png);
+	background-repeat:repeat-y;
+	width:523;
+	height:125px;
+	position:relative;
+	top:220px;
+}
+
+.transparent_overlay_ppage {
+	background-image:url(/vibha-media/img/aap/table_content_image_trans.png);
+	background-repeat:repeat-y;
+	width:523;
+	height:50px;
+	position:relative;
+	top:50px;
+}
+
+.transparent_overlay .padding {
+	color:#FFF;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+.transparent_overlay_ppage .padding {
+	color:#FFF;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+.transparent_overlay .title {
+	font-size:16px;
+	font-weight:bold;
+}
+
+.transparent_overlay_ppage .title {
+	font-size:16px;
+	font-weight:bold;
+}
+
+
+
+.price {
+	font-size:16pt;
+	color:#f1bd22;
+
+}
+
+.buy_container {
+	text-align:right;
+	width:128px;
+	float:right;
+	padding-top:20px;
+
+}
+
+.transparent_overlay .text_container {
+	width:360px;
+	float:left;
+}
+
+.project_nav_container {
+	width:700px;
+	height:91px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.project_nav_container_left {
+	background-image:url(/vibha-media/img/aap/slideshow_controler_01.png);
+	width:27px;
+	height:91px;
+	background-repeat:no-repeat;
+	cursor:pointer;
+	float:left;
+}
+
+
+
+.project_nav_container_mid {
+	width:642px;
+	height:88px;
+	margin-top:1px;
+	margin-bottom:2px;
+	overflow:hidden;
+	float:left;
+}
+
+.project_nav_container_image {
+	width:155px;
+	height:87px;
+	overflow:hidden;
+	float:left;
+	margin-left:2px;
+	margin-right:2px;
+	margin-top:1px;
+	
+	
+}
+.project_nav_container_image:hover {
+	position:relative;
+	top:-10px;
+}
+
+.project_nav_container_image img {
+	width: 155px;
+	height: auto;
+	min-height:91px;
+}
+
+.project_nav_container_image img:hover {
+
+}
+
+.project_nav_container_right {
+	background-image:url(/vibha-media/img/aap/slideshow_controler_09.png);
+	width:30px;
+	height:91px;
+	background-repeat:no-repeat;
+	float:left;
+	cursor:pointer;
+}
+
+.project_nav_container_left:hover, .project_nav_container_right:hover {
+	opacity: 0.5;
+}
+
+.content_table_top_left {
+	background-image:url(/vibha-media/img/aap/temp_home_content_34.png);
+	width:16px;
+	height:15px;
+	background-repeat:no-repeat;
+}
+
+.content_table_top_mid {
+	background-image:url(/vibha-media/img/aap/temp_home_content_35.png);
+	
+	height:15px;
+	background-repeat: repeat-x;
+}
+
+.content_table_top_right {
+	background-image:url(/vibha-media/img/aap/temp_home_content_36.png);
+	width:16px;
+	
+	height:15px;
+	background-repeat: no-repeat;
+}
+
+.content_table_mid_left {
+	background-image:url(/vibha-media/img/aap/temp_home_content_38.png);
+	width:16px;
+	min-height:153px;
+	background-repeat: repeat-y;
+}
+
+.content_table_mid_mid {
+	background-color:#FFF;
+	min-height:153px;
+
+}
+
+.content_table_mid_right {
+	background-image:url(/vibha-media/img/aap/temp_home_content_39.png);
+	width:16px;
+	min-height:153px;
+	background-repeat: repeat-y;
+}
+
+.content_table_bot_left {
+	background-image:url(/vibha-media/img/aap/temp_home_content_48.png);
+	width:16px;
+	min-height:16px;
+	background-repeat: no-repeat;
+}
+
+.content_table_bot_mid {
+	background-image:url(/vibha-media/img/aap/temp_home_content_49.png);
+	
+	height:16px;
+	background-repeat: repeat-x;
+}
+
+.content_table_bot_right {
+	background-image:url(/vibha-media/img/aap/temp_home_content_50.png);
+	width:16px;
+	min-height:16px;
+	background-repeat: no-repeat;
+}
+
+.content_table {
+	padding-left:5px;
+}
+
+.recentactivity_content {
+	margin-top:10px;
+	
+}
+
+.recentactivity_content .box_ra {
+	width:222px;
+	float:left;
+	margin-left:4px;
+	margin-right:4px;
+}
+
+.recentactivity_content .box_ra .left_ra {
+	width:81px;
+	float:left;
+}
+
+.recentactivity_content .box_ra .left_ra .img_holder {
+	width:81px;
+	height:81px;
+	overflow:hidden;
+	margin-top:4px;
+}
+
+.recentactivity_content .box_ra .right_ra {
+	width:136px;
+	float:left;
+	padding-left:5px;
+	padding-top:10px;
+	font-style:italic;
+	background-image:url(/vibha-media/img/aap/quote.png);
+	background-repeat:no-repeat;
+	background-position: left top;	
+}
+
+.author {
+	text-align:right;
+	padding-top:10px;
+}
+
+.share_container {
+	margin-top:10px;
+	margin-left:10px;
+}
+
+
+
+
+
+.content_table2_top_left {
+	background-image:url(/vibha-media/img/aap/temp_content_03.png);
+	width:18px;
+	height:18px;
+	background-repeat:no-repeat;
+}
+
+.content_table2_top_mid {
+	background-image:url(/vibha-media/img/aap/temp_content_04.png);
+	
+	height:18px;
+	background-repeat: repeat-x;
+}
+
+.content_table2_top_right {
+	background-image:url(/vibha-media/img/aap/temp_content_05.png);
+	width:18px;
+	
+	height:18px;
+	background-repeat: no-repeat;
+}
+
+.content_table2_mid_left {
+	background-image:url(/vibha-media/img/aap/temp_content_07.png);
+	width:18px;
+	min-height:305px;
+	background-repeat: repeat-y;
+}
+
+.content_table2_mid_mid {
+	background-color:#e9e9e9;
+	min-height:305px;
+	color:#676767;
+	font-size:16px;
+
+}
+
+.content_table2_mid_right {
+	background-image:url(/vibha-media/img/aap/temp_content_09.png);
+	width:18px;
+	min-height:305px;
+	background-repeat: repeat-y;
+}
+
+.content_table2_bot_left {
+	background-image:url(/vibha-media/img/aap/temp_content_14.png);
+	width:18px;
+	min-height:18px;
+	background-repeat: no-repeat;
+}
+
+.content_table2_bot_mid {
+	background-image:url(/vibha-media/img/aap/temp_content_15.png);
+	
+	height:18px;
+	background-repeat: repeat-x;
+}
+
+.content_table2_bot_right {
+	background-image:url(/vibha-media/img/aap/temp_content_16.png);
+	width:18px;
+	min-height:18px;
+	background-repeat: no-repeat;
+}
+
+.content_table2 {
+	padding-left:5px;
+}
+
+.content_table2_mid_mid .padding {
+	padding:10px;
+}
+
+.content_table2_mid_mid .price {
+	color:#F00;
+}
+
+.donate_container {
+	margin-top:20px;
+}
+
+.text_table2 {
+	width:660px;
+}
+
+	
+	

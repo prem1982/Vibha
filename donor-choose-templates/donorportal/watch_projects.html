@@ -1,0 +1,17 @@
+{% extends "donorportal/portal-menu.html" %}
+
+{% block optionaldetails %}
+<br/>
+{% block info %}
+{% if projects %}
+<p>List of all projects you are watching:</p>
+{% endif %}
+{% endblock %}
+{% for project in projects %}
+        {% include "project_part_simple.html" %}
+{% empty %}
+<p> You are not watching any projects! </p>
+<p> Choose from one of these <a href="/projectfilter/list/">projects</a> and add to your watchlist.</p>
+{% endfor %}
+
+{% endblock %}

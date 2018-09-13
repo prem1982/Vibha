@@ -1,0 +1,63 @@
+<style type="text/css">
+<!--
+.mapinfo-nopic {
+    width: 250px;
+    padding: 0;
+}
+
+.mapinfo {
+    width: 325px;
+    padding: 0;
+}
+
+.mapinfo-nopic h3,
+.mapinfo h3 {
+    font-family: georgia, serif;
+    font-size: 150%;
+    padding: 0;
+    margin:0 0 3px 0;
+    border: none;
+}
+
+.mapinfo-nopic a,
+.mapinfo a {
+    color: #00387D;
+    background: #ffffff;
+}
+
+.mapinfo-nopic a:hover,
+.mapinfo a:hover {
+    background: #00387D;
+    color: #ffffff;
+}
+
+.mapinfo-nopic p,
+.mapinfo p {
+    padding: 0;
+    font-size: 130%;
+}
+
+.mapinfo .thumbnail {
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.5ex;
+    margin-bottom: 0;
+}
+
+.mapinfo-nopic .bottom,
+.mapinfo .bottom {
+    font-size: 130%;
+    margin-top: 1ex;
+}
+
+.mapinfo-nopic .bottom .bottom-left,
+.mapinfo .bottom .bottom-left {
+    float: left;
+}
+.mapinfo-nopic .bottom .bottom-right,
+.mapinfo .bottom .bottom-right {
+    float: right;
+}
+   -->
+</style>

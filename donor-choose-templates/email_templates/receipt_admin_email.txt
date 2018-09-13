@@ -1,0 +1,9 @@
+{% extends "email_templates/receipt_email.txt" %}
+
+{% block greeting %}
+Hello Vibha Administrator,
+
+{{user.get_full_name}} with username: {{user.username}}, email: {{user.email}} donated a total of ${{ current_donation_details.total_amount }} 
+
+Their public profile is at https://secure.vibha.org{{user.get_profile.get_absolute_url}}
+{% endblock %}

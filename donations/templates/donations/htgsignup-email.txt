@@ -1,0 +1,38 @@
+Dear {{ model.first_name }},
+
+We have received your sign up information for Vibha's Help Them Grow
+automatic donation program.
+
+You will be sent another email notification from our office as soon as
+the automatic donation is activated. If you do not receive an email within
+two weeks, please email us at htg@vibha.org.
+
+Thank you for contributing to the Help Them Grow automatic donation
+program.  Your contribution will go a long way in realizing and
+sustaining the dreams of a child by providing education, health care,
+vocational training and shelter.
+
+If you have any questions or comments, please contact us at htg@vibha.org.
+
+Sincerely,
+Preethi Chandrasekhar
+HTG Program Coordinator
+htg@vibha.org
+http://www.vibha.org
+
+===========================================================
+
+Date:            {{ model.signup_date|date:"D M j H:i:s T Y" }}
+First name:      {{ model.first_name }}
+Last name:       {{ model.last_name }}
+E-mail:          {{ model.email }}
+Address:         {{ model.address_1 }}, {% if model.address_2 %}{{ model.address_2 }}{% endif %}, {{ model.city }}, {{ model.state }} {{ model.zipcode }}
+Phone:           {{ model.phone }}
+Donation amount: {{ model.amount }}
+Payment option:  {{ model.use_check|yesno:"Check,Credit card" }}{% if model.use_check %}
+Bank name:       {{ model.bank_name }}
+ABA number:      {{ model.aba_number }}
+Account number:  *********{% else %}
+cc_ac_name:      {{ model.cc_ac_name }}
+CC number:       ****************
+Expiry date:     {{ model.cc_expr_month }}/{{ model.cc_expr_year }}{% endif %}

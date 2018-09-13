@@ -1,0 +1,17 @@
+{% extends "base2.dmpl" %}
+{% block title %}
+{% endblock %}
+{% block content %}
+    <p class="">You are about to remove project 
+    "{{ project }}" from your donating cart.</p>
+    <p class="">Are you sure you want to continue</p>
+    <form method="post" action=.>
+    <input type="submit" name="confirm_delete_cart" value="Yes">
+    <input type="submit" name="confirm_delete_cart" value="No">
+    </form>
+    
+    <p>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </p>
+{% endblock %}

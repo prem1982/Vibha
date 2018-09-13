@@ -1,0 +1,19 @@
+{% extends "conf07/base.dmpl" %}
+
+{% block title %} Vibha : Thank you for signing up {% endblock %}
+
+{% block contentBox %}
+<p style="text-align: center;"><img class="nolinkedimage"
+ src="http://wiki.vibha.org/images/Vibhafinal4.png"> </p>
+<h2> Thank you </h2>
+                          
+<p> Thank you for signing up for the Vibha Volunteer Conference 2010
+in the Twin Cities, MN. You should be receiving an email shortly confirming
+your registration. If you have any requests, our volunteers will get
+back to you closer to the conference date with specific details. In
+the meantime should you have any questions, please don't hestitate to
+contact the Vibha Volunteer Relations team at <a
+href="mailto:vconference@vibha.org"> vconference@vibha.org.</a> </p>
+
+<p> Looking forward to your participation at the conference!</p>
+{% endblock %}

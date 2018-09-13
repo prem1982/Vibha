@@ -1,0 +1,19 @@
+Hello {{project.internal_contact.contact.first_name}},
+
+A patron has requested more information on one of our
+projects:  {{project.name}}.
+
+The contact information and message from the patron is
+attached below. Please respond as soon as possible.
+______________________________________________________
+
+Name: {{name}}
+Email: {{from}}
+{% if phone %}Phone: {{phone}}{% endif %}
+Message: {{msg|wordwrap:50}}
+
+______________________________________________________
+
+Regards,
+Vibha Projects Team
+

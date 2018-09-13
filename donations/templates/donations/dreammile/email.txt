@@ -1,0 +1,6 @@
+{% extends "donations/singledonation-email.txt" %}
+
+{% block dreamRegistryDonation %}
+This donation was made to the Vibha through {{ champion }}'s fundraising
+page.
+{% endblock %}

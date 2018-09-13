@@ -1,0 +1,48 @@
+Hello {{ model.first_name }},
+
+Thank you very much for your interest in volunteering with
+Vibha. Vibha is a volunteer driven organization dedicated to uplifting
+the lives of underprivileged children in India and the US.  Being a
+volunteer at Vibha is fun, a great learning experience!  You can join
+our team of energetic volunteers in your city, or get involved in our
+National teams that work in different strategic functional areas.
+
+Learn more about us:
+
+http://www.youtube.com/helpthemgrow - Vibha on YouTube
+http://www.facebook.com/pages/Vibha/18359501375 - Vibha on Facebook
+http://vibha.org/xpressions - Vibha Newsletter Xpressions
+http://vibha.org/vibhascope - Vibha Volunteer Newsletter
+http://vibhablog.wordpress.com - Vibha Blog
+
+Further to assist you in the process of how you can contribute, the
+Volunteer Coordinator of the city nearest to you will
+contact you and provide further information on volunteer opportunities.
+Please discuss to find out how you would like to participate. For more
+information, explore our website at http://www.vibha.org. I look forward
+to your involvement with us to make a bigger difference.
+
+Welcome to a great team at Vibha.
+
+Thanks Again,
+
+Srinivas Vemulapalli
+Director - Volunteer Relations Team
+http://www.vibha.org/
+volunteer@vibha.org
+
+===========================================================
+
+Date:            {{ model.signup_date|date:"D M j H:i:s T Y" }}
+First name:      {{ model.first_name }}
+Last name:       {{ model.last_name }}
+E-mail:          {{ model.email }}
+Location:        {{ model.get_location_display }}{% if model.location_has_no_ac %}, {{ model.other_location }}
+Start new AC?:   {{ model.new_ac|yesno:"Yes,No" }}{% endif %}
+Interests:       {{ model.interests }}
+Phone:           {{ model.phone }}
+Age group:       {{ model.get_age_display }}
+Occupation:      {{ model.get_occupation_display }}
+Introduced by:   {{ model.get_intro_source_display }}
+Comments:
+{{ model.comments|wordwrap:50 }}

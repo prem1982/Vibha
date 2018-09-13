@@ -1,0 +1,11 @@
+{% extends "base.dmpl" %}
+
+{% block getInvolvedLeftBox %}
+    <ul>
+      <li><a href="http://wiki.vibha.org/Get_Involved_Overview">Overview</a></li>
+      <li class="h"><a href="http://vibha.org/volunteer">Volunteer with Vibha</a></li>
+      <li><a href="http://wiki.vibha.org/Vibhascope_Home">Volunteer Newsletter</a></li>
+      <li><a href="http://wiki.vibha.org/Volunteer_Opportunities">Volunteer Opportunities</a></li>
+      <li><a href="http://wiki.vibha.org/Get_Involved_Action_Centers">Vibha Action Centers</a></li>
+      <li><a href="http://wiki.vibha.org/Event_Overview">Events</a></li>
+    </ul>{% endblock %}

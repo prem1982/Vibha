@@ -1,0 +1,28 @@
+{% extends "base.dmpl" %}
+
+{% block title %} Vibha : Thank you {% endblock %}
+
+{% block contentBox %}
+<h2> Thank you </h2>
+                          
+<p> Thank you for enrolling in the Help Them Grow automatic donation
+program.  Vibha has received your submission.  Please check your email
+for a confirmation with the details.  If you have any questions or
+suggestions about this signup or the Help Them Grow program, please
+email us at <a href="mailto:htg@vibha.org">htg@vibha.org</a>.  <br/><br/></p>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-like" data-href="http://www.facebook.com/pages/Vibha/18359501375" data-send="true" data-width="450" data-show-faces="false"></div>
+
+
+
+{% endblock %}

@@ -1,0 +1,8 @@
+{{name}} with email id {{email}} sent the following message:
+
+{% if user.is_authenticated %} 
+    The user was logged in as "{{user.username}}" (email:{{user.email}}). Public profile is at https://secure.vibha.org{{user.get_profile.get_absolute_url}}
+
+{% endif %}
+
+{{body}}

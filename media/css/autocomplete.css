@@ -1,0 +1,32 @@
+/*
+ * $Id: autocomplete.css 367 2007-06-18 20:22:02Z suriya $
+ */
+
+div.page_name_auto_complete {
+    font-size: 9pt;
+    background:#FFFFFF none repeat scroll 0%;
+    display:inline;
+    /* width:100px; */
+    width: auto;
+}
+div.page_name_auto_complete ul {
+    font-size: 9pt;
+    border:1px solid #888888;
+    list-style-type:none;
+    margin:0pt;
+    padding:0pt;
+    width:100%;
+}
+div.page_name_auto_complete ul li {
+    font-size: 9pt;
+    margin:0pt;
+    padding:3px;
+}
+div.page_name_auto_complete ul li.selected {
+    background-color:#FFFFBB;
+}
+div.page_name_auto_complete ul strong.highlight {
+    color:#880000;
+    margin:0pt;
+    padding:0pt;
+}

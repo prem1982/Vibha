@@ -1,0 +1,24 @@
+<form action="." method="POST">
+    <select name="state" >
+        <option value="None">Select state..</option>    
+        {% for i in states_list %}
+        <option value="{{ i }}">{{i}}</option>    
+        {% endfor %}
+    </select>
+    <select name="focus_area">
+        <option value="None">Select focus area..</option>    
+        {% for i in focus_list %}
+        <option value="{{ i }}">{{i}}</option>    
+        {% endfor %}
+    </select>
+    <select name="funding">
+        <option value="None">Select funding required..</option>    
+        {% for i in funding_list %}
+        <option value="{{ i.0 }}">{{ i.1 }}</option>    
+        {% endfor %}
+    </select>
+    <input type="submit" value="Filter Projects">
+</form>
+{% for i in projects_list %}
+    <b>{{ forloop.counter }})</b> {{ i }} -- {{ i.location.state }} -- {{ i.focus_areas.all }} -- {{ i.projectfundingdetail_set.all }}<br /><br /> 
+{% endfor %}

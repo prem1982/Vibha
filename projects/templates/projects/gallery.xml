@@ -1,0 +1,15 @@
+{# $Id: gallery.xml 350 2007-05-10 06:15:05Z suriya $ #}{% load utils %}<?xml version="1.0" encoding="UTF-8"?>
+<simpleviewerGallery maxImageWidth="1024" maxImageHeight="768"
+    textColor="0xFFFFFF" frameColor="0x664386" frameWidth="10"
+    stagePadding="20" thumbnailColumns="3" thumbnailRows="3"
+    navPosition="left" title="Vibha : {{ project.name }}"
+    enableRightClickOpen="false" backgroundImagePath=""
+    imagePath="/project-uploads/pictures/"
+    thumbPath="/project-uploads/thumbs/">
+{% for picture in pictureS %}
+<image>
+  <filename>{{ picture.image.name|basename }}</filename>
+  <caption>{{ picture.desc }}</caption>
+</image>
+{% endfor %}
+</simpleviewerGallery>

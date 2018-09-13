@@ -1,0 +1,101 @@
+{% extends "base.dmpl" %}
+
+{% load creditcard %}
+
+{% block title %} Vibha : Contribute {% endblock %}
+
+{% block additionalHeaders %}
+<style type="text/css">@import "/vibha-media/css/vibhaform.css";</style>
+{% endblock %}
+
+{% block headerimage %}<div id="topImage"><img  class="nolinkedimage" src="/vibha-media/img/HeaderGreen.png" width="1000" height="90" ></div>{% endblock %}
+
+{% block contentBox %}
+
+<p style="font-size: 11pt;">
+Please verify your infomation. If there are any errors, click your
+browser's back button to go back and correct the issues. Otherwise,
+click Submit below to process your donation.
+</p>
+
+{% block dreamRegistryDonation %}{% endblock %}
+{% block projectSpecificDonation %}{% endblock %}
+
+<center>
+<table style="margin-left: 2em; margin-right: 2em; font-size: 10pt;" class="wikitable">
+    <tr>
+        <td>E-mail</td>
+        <td>{{ cleaned_data.email|escape }}</td>
+    </tr>
+    <tr>
+        <td>First name</td>
+        <td>{{ cleaned_data.first_name|escape }}</td>
+    </tr>
+    <tr>
+        <td>Last name</td>
+        <td>{{ cleaned_data.last_name|escape }}</td>
+    </tr>
+    <tr>
+        <td>Address </td>
+        <td>{{ cleaned_data.address_1|escape }}<br />
+            {{ cleaned_data.address_2|escape }}<br />
+            {{ cleaned_data.city|escape }}, {{ cleaned_data.state|escape }} - {{ cleaned_data.zipcode|escape }}<br />
+            {{ cleaned_data.country|escape }}</td>
+    </tr>
+    <tr>
+        <td>Phone</td>
+        <td>{{ cleaned_data.phone|escape }}</td>
+    </tr>
+    <tr>
+        <td>Credit card</td>
+        <td>{{ cleaned_data.credit_card|last4|escape }}<br />
+        Expires: {{ cleaned_data.expr_date|join:"/" }}</td>
+    </tr>
+    <tr>
+        <td>Donation</td>
+        <td>$ {{ cleaned_data.amount|escape }}</td>
+    </tr>
+    <tr>
+        <td>Referrer Name</td>
+        <td>{{ cleaned_data.referrer|escape }}</td>
+    </tr>
+    <tr>
+        <td>Company/Organization</td>
+        <td>{{ cleaned_data.company_name|escape }}</td>
+    </tr>
+    <tr>
+        <td>Comments</td>
+        <td style="font-size: 9pt;">
+        Go green (no paper receipt)? {{ cleaned_data.paper_receipt|yesno|escape }} <br />
+        Project newsletter subscription? {{ cleaned_data.project_subscription|yesno|escape }} <br />
+        Event newsletter subscription? {{ cleaned_data.event_subscription|yesno|escape }} <br />
+        {{ cleaned_data.comments|escape }}
+	</td>
+    </tr>
+</table>
+</center>
+
+<p style="font-size: 9pt;">
+By pressing Submit, I certify that I am authorized to use the credit
+card in consideration. I also authorize Vibha to deduct my
+contribution once from the above account.
+</p>
+
+<form class="vibhaform" method="post" action="">
+        <input type="hidden" name="form_step" value="do_processing" /> 
+        <label for="id_submit"></label>
+	<p style="text-align: center;">
+	<button type="submit">Submit</button>
+	</p>
+</form>
+
+<p style="font-size: 9pt; color: red">
+Important: Upon clicking Submit, your credit card will be processed
+for your donation. To avoid duplicate charges, do not navigate away
+from this page until you see a confirmation indicating the success or
+failure of the transaction. Please be patient, as this process may
+take several minutes. Please also ensure that you click Submit only
+once.
+</p>
+
+{% endblock %}

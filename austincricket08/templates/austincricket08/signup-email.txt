@@ -1,0 +1,45 @@
+Dear {{ model.captain_first_name }},
+
+We have received your registration for Vibha Austin's cricket tournament.
+Please pay you registration fee by visiting this URL:
+https://secure.vibha.org/{{ model.paypal_redirect_url }}
+
+We will also send you schedules and other event information through e-mail. If
+you have any questions, feel free to contact us through
+
+      Web:    http://austin.vibha.org/cricket
+      E-mail: cricket@austin.vibha.org
+
+Thank you for registering in this tournament. Your participation in this
+tournament will go a long way in helping Vibha support grassroots level
+initiatives in India and the US (http://vibha.org/projects). With generous
+support from patrons like you, we have been able to positively impact the
+lives of more than 100,000 disadvantaged children since 1991. We hope that
+you will continue to support Vibha as we strive to reach many more children
+who are in dire need of care.  Following are a few more easy ways you can
+help us provide care for underprivileged children.
+
+1. Sign up for our Help Them Grow program and donate an amount of your
+   choice monthly. More details at http://www.vibha.org/htg
+
+2. You can also support Vibha while celebrating successes in your life
+   through the Vibha Dream Registry. More details at
+   http://www.vibha.org/dreamregistry
+
+Sincerely,
+Vibha Austin Volunteers
+
+====================================================================
+
+Registration details
+
+Registration Date: {{ model.signup_date|date:"D M j H:i:s T Y" }}
+First Name:        {{ model.captain_first_name }}
+Last Name:         {{ model.captain_last_name }}
+E-mail:            {{ model.captain_email }}
+Phone:             {{ model.captain_phone }}
+Individual/Team:   {{ model.individual|yesno:"Individual,Team" }}
+Team name:         {{ model.team_name }}
+Students:          {{ model.num_students }}
+Non-students:      {{ model.num_non_students }}
+Comments:          {{ model.comments }}

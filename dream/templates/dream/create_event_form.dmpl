@@ -1,0 +1,42 @@
+{% extends "base.dmpl" %}
+
+{% load vibhaform %}
+{% load captcha %}
+
+{% block title %} Vibha : Create a new Dream Registry {% endblock %}
+
+{% block additionalHeaders %}
+<style type="text/css">@import "/vibha-media/css/vibhaform.css";</style>
+{% endblock %}
+
+{% block contentBox %}
+<h2> Vibha Dream Registry : New celebration </h2>
+                          
+<p>
+Some message here
+</p>
+
+    {% if form.errors %}
+        <p> Please correct the following errors below (fields shown in red) </p>
+    {% endif %}
+
+    <form class="vibhaform" method="post" action="">
+        <fieldset>
+            <legend>Personal information</legend>
+                {{ form.email|formfield }}
+                {{ form.honoree|formfield }}
+                {{ form.event_date|formfield }}
+                {{ form.short_title|formfield }}
+                {{ form.url|formfield }}
+                {{ form.message|formfield }}
+        </fieldset>
+        {% captcha_field form %}
+        <label for="id_submit"></label><button type="submit">Submit</button>
+                                       <button type="reset" >Reset </button>
+    </form>
+
+<p>
+Some message here.
+</p>
+
+{% endblock %}

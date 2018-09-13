@@ -1,0 +1,41 @@
+{% extends "base2.dmpl" %}
+
+{% block content %}
+
+<STYLE type="text/css">
+a {
+	color:#0508c0;
+	text-decoration:none;
+	
+}
+p {
+    font-size:13px;
+    }
+</STYLE>
+
+<h2>About the Program</h2>
+<br />
+<br />
+<br />
+<h3>You Adopt</h3>
+<p style="margin-top:-10px;">Select a project to support, from a list of initiatives carefully
+screened by Vibha. Make a donation and/or start a fundraising campaign
+and involve your friends and families.</p>
+<br />
+<h3>We Enable</h3>
+<p style="margin-top:-10px;">Vibha enables the project by providing it with guidance and support
+to execute on its goals.</p>
+<br />
+<h3>You see the difference</h3>
+<p style="margin-top:-10px;">You will be able to see the difference you are making in the lives
+of children through project reports and pictures.</p>
+<br />
+<br />
+<br />
+
+<h2>Contact Us</h2>
+<br />
+<br />
+<br />
+<p style="margin-top:-10px;">If you would like to get information about contributing to Vibha or any other information, send us a mail at <a href="mailto:adopt@vibha.org">adopt@vibha.org<a>.</p>
+{% endblock %}

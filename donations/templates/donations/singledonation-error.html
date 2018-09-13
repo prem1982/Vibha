@@ -1,0 +1,17 @@
+{% extends "base.dmpl" %}
+
+{% block title %} Vibha : Error {% endblock %}
+
+{% block headerimage %}<div id="topImage"><img  class="nolinkedimage" src="/vibha-media/img/HeaderGreen.png" width="1000" height="90" ></div>{% endblock %}
+
+{% block contentBox %}
+<h2>Error Processing your Donation</h2>                          
+<p><span style="font-size:1.2em">
+We are sorry. We are unable to process your donation at this
+moment. Please double-check your donation information and try again at
+a later time.</span>
+</p>
+<p>
+<input type="button" value="Go back" style="padding:5px;border: 1px solid #888" onclick="window.history.go(-2)" />
+</p><br />
+{% endblock %}

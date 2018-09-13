@@ -1,0 +1,43 @@
+{% extends "base2.dmpl" %}
+
+{% block headers %}
+<style type="text/css">@import "/vibha-media/portal/css/portal-home.css";</style>
+{% endblock %}
+
+{% block user_messages %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <p style="color:red"> {{ message }} </p>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}
+{% block content %}
+
+
+	<div class="user_menu">
+		<ul>
+		<li><a href="{% url portal_cart %}">My Cart</a></li>
+		<li><a href="{% url portal_donations %}">My Donations</a></li>
+		<li><a href="{% url portal_projects %}">My Projects</a></li>
+		<li><a href="{% url portal_campaigns%}">My Campaigns</a></li>
+		<li><a href="/profiles/edit/">My Profile</a></li>
+		<li><a href="{% url portal_watch%}">My Watch List</a></li>
+		<div class="clr"></div>
+		</ul>
+	</div>
+<!-- Content End -->
+	{% block optionaldetails %}
+		<p><br /><br /></p>
+		<p><br /><br /></p>
+		<p><br /><br /></p>
+		<p><br /><br /></p>
+	`	<p><br /><br /></p>
+		<p><br /><br /></p>
+		<p><br /><br /></p>
+		<p><br /><br /></p>
+	{% endblock %}
+{% endblock %}
+

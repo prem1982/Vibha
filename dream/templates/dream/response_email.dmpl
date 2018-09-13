@@ -1,0 +1,27 @@
+Hello patron,
+
+Thank you for contacting Vibha. Some message here.
+
+I am forwarding this information to our volunteer who will provide you with
+further information.
+
+I look forward to your involvement.
+
+Best,
+Suchitra
+dreamregistry@vibha.org
+Vibha Dream Registry
+www.vibha.org
+http://www.vibha.org/
+
+===========================================================
+
+E-mail:            {{ model.email }}
+Honoree name:      {{ model.honoree }}
+Event date:        {{ model.event_date|date:"M j, Y" }}
+Celebration name:  {{ model.short_title }}
+URL:               {{ model.url }}
+Invitation message:
+{{ model.message|wordwrap:50 }}
+
+===========================================================

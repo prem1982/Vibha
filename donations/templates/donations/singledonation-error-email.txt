@@ -1,0 +1,23 @@
+Dear Vibha Volunteer,
+
+A patron tried to donate online. The donation did not go through
+successfully. The donations details are providied below. Please work
+with the Vibha IT team to resolve this issue as soon as possible.
+
+Thank You,
+Suriya
+
+===========================================================
+
+Database Id:     {{ model.id }}
+Date:            {{ model.signup_date|date:"D M j H:i:s T Y" }}
+First name:      {{ model.first_name }}
+Last name:       {{ model.last_name }}
+E-mail:          {{ model.email }}
+Address:         {{ model.address_1 }}, {% if model.address_2 %}{{ model.address_2 }}{% endif %}, {{ model.city }}, {{ model.state }} {{ model.zipcode }}
+Phone:           {{ model.phone }}
+Donation amount: {{ model.amount }}
+Summary of response from Echo:
+    {{ model.trans_summary }}
+
+The response from Echo is attached to this email.

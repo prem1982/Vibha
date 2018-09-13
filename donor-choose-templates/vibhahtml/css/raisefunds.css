@@ -1,0 +1,65 @@
+#maincontent h1{
+padding:6px 10px;
+margin:0px;
+font-size:16px;
+font-weight:normal;
+color:#FFF;
+background:#553870;
+}
+#maincontent h2{
+padding:15px 10px 10px 10px;
+margin:0px;
+font-size:15px;
+font-weight:normal;
+color:#553870;
+}
+#maincontent p{
+padding:0 10px 10px 10px;
+margin:0px;
+font-size:13px;
+font-weight:normal;
+color:#553870;
+}
+#maincontent .user_menu{
+padding:0px;
+margin:15px 0 0 0;
+width:868px;
+}
+#maincontent .user_menu ul{
+padding:0px;
+margin:0px;
+width:864px;
+font-size:11px;
+font-weight:normal;
+list-style:none;
+}
+#maincontent .user_menu li.active{
+padding:4px 0 0 8px;
+margin:0px;
+width:164px;
+height:27px;
+color:#000000;
+background:url(../images/raise-fund.gif) no-repeat left top;
+float:left;
+}
+#maincontent .user_menu .bigno{
+padding:5px 14px 0 0;
+margin:0px;
+font-size:16px;
+height:21px;
+text-decoration:none;
+}
+#maincontent .user_menu li{
+padding:4px 0 0 8px;
+margin:0px;
+width:164px;
+height:27px;
+background:url(../images/raise-fund-ho.gif) no-repeat left top;
+float:left;
+color:#777777;
+}
+
+#maincontent .user_menu li a:hover{
+color:#999999;
+text-decoration:none;
+}

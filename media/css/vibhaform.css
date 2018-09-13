@@ -1,0 +1,120 @@
+/* 
+ * $Id: vibhaform.css 387 2007-08-11 17:18:12Z suriya $
+ *
+ * This CSS file was obtained from http://www.websiteoptimization.com/speed/tweak/forms/
+ */
+
+.vibhaform {  /* set width in form, not fieldset (still takes up more room w/ fieldset width */
+    font: 10pt verdana,arial,sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    min-width: 500px;
+    max-width: 600px;
+    width: 560px; 
+}
+
+/* This is for drawing boxes around various divs to indicate errors */
+.vibhaform div.hasformerrors {
+    padding-bottom: 15px;
+    border: 1px solid red;
+    background:#ffdfdf url(/vibha-media/img/form_error.png) repeat scroll 0%;
+}
+
+.vibhaform div.hasnoformerror {
+    border: 0px solid #efefef;
+}
+
+.vibhaform fieldset {
+    / * clear: both; note that this clear causes inputs to break to left in ie5.x mac, commented out */
+    border-width: 12px;
+    border-style: solid;
+    border-color: #666666;
+    padding: 10px;        /* padding in fieldset support spotty in IE */
+    margin: 0pt;
+}
+
+.vibhaform label { 
+    display: block;  /* block float the labels to left column, set a width */
+    float: left; 
+    width: 150px; 
+    padding: 0; 
+    margin: 3px 0 3px 0; /* set top margin same as form input - textarea etc. elements */
+    text-align: right; 
+}
+
+.vibhaform label.radio {
+    display: block;
+    float: right;
+    width: 500px;
+    padding: 0;
+    margin: 3px 0 3px 0; /* set top margin same as form input - textarea etc. elements */
+    text-align: left;
+}
+
+.vibhaform fieldset legend {
+    padding: 5px;
+    font-size:1.1em; /* bump up legend font size, not too large or it'll overwrite border on left */
+                       /* be careful with padding, it'll shift the nice offset on top of border  */
+}
+
+.vibhaform input, .vibhaform textarea, .vibhaform select {
+    /* display: inline; inline display must not be set or will hide submit buttons in IE 5x mac */
+    width:auto;      /* set width of form elements to auto-size, otherwise watch for wrap on resize */
+    margin: 3px 0 3px 10px; /* set margin on left of form elements rather than right of
+                              label aligns textarea better in IE */
+    border: 1px solid #595959;
+}
+
+.vibhaform .radiofield {
+    border: 0px;
+    width: auto;
+    margin: 3px 0pt 0px 10px;
+}
+
+.vibhaform input:focus,
+.vibhaform textarea:focus,
+.vibhaform select:focus {
+    background: #f5f6be;
+}
+
+.vibhaform input#reset {
+    margin-left:0px; /* set margin-left back to zero on reset button (set above) */
+}
+
+textarea { overflow: auto; }
+
+.vibhaform small {
+    display: block;
+    margin: 0 0 5px 160px; /* instructions/comments left margin set to align w/ right column inputs */
+    padding: 1px 3px;
+    font-size: 8pt;
+}
+
+form.vibhaform ul.errorlist {
+    padding: 1px 3px;
+    margin: 0 0 5px 180px;
+    color: red;
+    font-size: 10pt;
+}
+
+.vibhaform .required {
+    font-weight:normal;
+    color: red;
+} /* uses class instead of div, more efficient */
+
+.vibhaform br {
+    clear:left; /* setting clear on inputs didn't work consistently, so brs added for degrade */
+}
+
+.vibhaform img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* function sf(){document.f.firstname.focus();} */
+
+/*
+ * vim:ts=4:sw=4:et
+ */

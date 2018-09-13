@@ -1,0 +1,380 @@
+{% extends "base1.dmpl" %}
+
+
+{% block headers %}
+<script type="text/javascript">
+<!--
+function switch1(div) {
+if (document.getElementById('one')) {
+var option=['one','two','three'];
+for(var i=0; i<option.length; i++)
+{ obj=document.getElementById(option[i]);
+obj.style.display=(option[i]==div)? "block" : "none"; }
+}
+}
+//
+function switchImg(i){
+document.images["main"].src = i;
+}
+
+function changeText(pid, title, description, raised, raisedremaining, donations, reports, progressbarwidth){
+	document.getElementById('title').innerHTML = title;
+	document.getElementById('description').innerHTML = description;
+	document.getElementById('raised').innerHTML = raised;
+	document.getElementById('raisedremaining').innerHTML = raisedremaining;
+	document.getElementById('donations').innerHTML = donations;
+	document.getElementById('reports').innerHTML = reports;
+	document.getElementById('progressbarwidth').style.width = progressbarwidth;
+	document.getElementById('id_pid').value = pid;
+}
+
+function emailField(){
+    var val = document.getElementById('id_email').value;
+    if(val == "Email Address")
+        document.getElementById('id_email').value = "";
+}
+
+//-->
+</script>
+<link href="/vibha-media/css/nfg_style.css" rel="stylesheet" type="text/css"/>
+{% endblock %}
+{% block maincontent %}
+    <div class="container">
+
+        <div class="container_top"></div><!--end container top-->
+        <div class="container_left"></div><!--end container left-->
+        <div class="container_center">
+            <div class="nav_left">
+                <div class="nav_header_container">
+                    <div class="link_padding"><a href="">Projects By Focus Area</a></div><!--end link padding-->
+                </div><!-- end nav header container-->
+
+                {% for focus in focusareas %}
+                <div class="nav_link_container">
+                    <div class="link_padding"><a href="/projectfilter/list/?focus_area={{focus.id}}">{{focus.name}}</a></div><!--end link padding-->
+                </div><!--end nav link container-->
+                {% endfor %}
+
+
+                <div class="nav_header_container2">
+                    <div class="link_padding"><a href="">Projects By Location</a></div><!--end link padding-->
+                </div><!-- end nav header container2-->
+
+                {% for state in states %}
+                <div class="nav_link_container">
+                    <div class="link_padding"><a href="/projectfilter/list/?state={{state.id}}">{{state.name}}</a></div><!--end link padding-->
+                </div><!--end nav link container-->
+                {% endfor %}
+                <!--start optin container-->
+                <div class="optin_container">
+                    <div class="optin_container_padding">
+                        <h1>Newsletter</h1>
+                        <!-- This will generate a form to submit information to the NFG account -->
+                        <div class="input_optin_container">
+                            <!--
+                            <script type="text/javascript" src="https://app.e2ma.net/app/view:SignupForm/signupId:1418387/key:9e5238f97bcf5cbfe605cdbed7f4e26d/acctId:31066"></script><div id="load_check" class="signup_form_message" >This form needs Javascript to display, which your browser doesn't support. <a href="https://app.e2ma.net/app/view:Join/signupId:1418387/acctId:31066"> Sign up here</a> instead </div><script type="text/javascript">signupFormObj.drawForm();</script>
+                            -->
+                            <div class="e2ma_signup_form" id="e2ma_signup_form">
+                                <div class="e2ma_signup_message" id="e2ma_signup_message">    
+                                    <div>&nbsp;</div>
+                                </div>
+                                <div class="e2ma_signup_form_container" id="e2ma_signup_form_container">
+                                    <form target="_new" method="post" id="e2ma_signup" onsubmit="return signupFormObj.checkForm(this)" action="https://app.e2ma.net/app/view:Join/acctId:31066/signupId:1418387">
+                                        <input type="hidden" name="private_set" value="1">
+                                        <input type="hidden" name="groups[]" value="208103421">
+                                        <div class="e2ma_signup_form_row">
+                                            <div class="e2ma_signup_form_element"><input name="emma_member_email" type="text" value="Email Address" style="border: 1px solid #f0b91a;" id="id_email" onclick="emailField();"></div>
+                                        </div>
+                                        <div class="e2ma_signup_form_button_row" id="e2ma_signup_form_button_row">
+                                            <input id="e2ma_signup_submit_button" class="e2ma_signup_form_button" type="submit" name="Submit" value="Subscribe">
+                                            &nbsp;
+                                            <input id="e2ma_signup_reset_button" class="e2ma_signup_form_button" type="reset" value="Clear">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div><!--end optin container-->
+                    </div><!--end optin container padding-->
+                </div>
+                <!--end optin container-->
+
+
+
+
+
+            </div><!--end nav left-->
+
+            <div class="content moveup">
+
+                <div class="home_image_container">
+
+                    <div class="box1">
+                        <img src="/vibha-media/img/aap/homepage-images_01.png" width="250" height="87" />
+                        <div class="box_description">
+                            <div class="padding" style="color:#434343">
+                                Select a project to support, from a list of initiatives carefully screened by Vibha. Make a donation and/or start a fundraising campaign and involve your friends and families.
+                            </div><!--end padding-->
+                        </div><!--end box description-->
+
+
+                    </div><!--end box1-->
+
+                    <div class="box2">
+                        <img src="/vibha-media/img/aap/homepage-images_02.png" width="240" height="87" />
+                        <div class="box_description">
+                            <div class="padding" style="color:#434343">
+                                Vibha enables the project by providing it with guidance and support to execute on its goals.
+                            </div><!--end padding-->
+                        </div><!--end box description-->
+
+
+                    </div><!--end box2-->
+
+                    <div class="box3">
+                        <img src="/vibha-media/img/aap/homepage-images_03.png" width="247" height="87" />
+                        <div class="box_description">
+                            <div class="padding" style="padding-right:20px; color:#434343">
+                                You will be able to see the difference you are making in the lives of children through project reports and pictures.
+                            </div><!--end padding-->
+                        </div><!--end box description-->
+
+
+                    </div><!--end box3-->
+
+
+                </div><!--end home image container-->
+
+                <div class="project_container">
+                    <div class="top"> </div><!--end top-->
+                    <div class="top2"></div><!--end top2-->
+
+                    <div class="left"></div><!--end left-->
+
+
+                    {% for fp,report,donation,raised,funding_needed,tfunding,raised_percent in fps|slice:":1" %}
+                    <div class="mid">
+                            <div class="transparent_overlay">
+                                <div class="padding">
+                                    <span id="title" class="title"> {{ fp.project.name }} </span><br />
+                                    <div id="description" class="text_container">
+                                        {{fp.project.summary|escape}}
+                                    </div>
+                                    <div align="right" class="buy_container">
+                                        <span class="price">$25</span><br />
+
+                                        <form action="/portal/cart/" method="post">
+                                            <input type="hidden" id="id_pid" name="pid" value="{{fp.project.id}}">    
+                                            <input type="hidden" name="amount" value="25">    
+                                            <input type="image" src="/vibha-media/img/aap/btn_givenow.png">
+                                        </form>
+                                    </div><!--end buy container-->
+
+                                </div><!--end padding-->
+                            </div><!--end transparent overlay-->
+                            <div class="primary_image_container"><img id="main" src="{{fp.project.get_random_picture.medthumb.url}}" width="523" />
+                            </div><!--end primary image container-->
+
+
+                        </div><!--end mid-->
+                        <div class="mid2">
+                            <div class="header1">
+                                <div class="padding">
+                                    Raised
+                                </div><!--end padding-->
+
+                            </div><!--end header-->
+
+                            <div class="contentmid">
+
+                                <!--create raised money gage-->
+                                <div class="raised_gage_container">
+                                    <div class="left"></div><!--end left-->
+                                    <div class="mid">
+                                        <!-- set dynamic width in style attribute of div fill -->
+                                        <div id="progressbarwidth" class="fill" style="width:{{raised_percent}}%"><div class="padding">$<span id="raised">{{raised}}</span></div><!--end padding--></div><!--end fill-->
+
+                                    </div><!--end mid-->
+
+                                    <div class="right_rc"></div><!--end right-->
+
+
+                                </div><!--end raised gage container-->
+                                $<span id="raisedremaining">{{funding_needed}}</span> remaining
+
+
+                            </div><!--end contentmid-->
+                            <div class="header2"><div class="padding">Donations</div><!--end padding--></div><!--end header2-->
+                            <div class="contentmid">
+                                <span id="donations">{{donation}}</span> Donations
+                            </div><!--end contentmid-->
+
+                            <div class="header2"><div class="padding">Reports</div><!--end padding--></div><!--end header2-->
+                            <div class="contentmid">
+                               <span id="reports">{{report}}</span> Reports
+                            </div><!--end contentmid-->
+
+                            <!--<div class="header2"><div class="padding">Share Us</div> --><!--end padding--> <!--</div> --><!--end header2-->
+                            <!--
+                            <div class="contentmid">
+                                <img src="/vibha-media/img/aap/social_share.png" width="154" height="26" /><br />
+                                <img style="float:left" src="/vibha-media/img/aap/temp_home_content_28.png" width="39" height="24" /><a href="">Email</a></div>--><!--end contentmid--> 
+
+                        </div><!--end mid2-->
+                        <div class="right"></div><!--end right-->
+                        <div class="clear"></div><!--end clear-->
+                        <div class="bottom_content">
+                            <div class="project_nav_container">
+                                <div class="project_nav_container_left"></div><!--end left-->
+                                <div class="project_nav_container_mid">
+                                    {% endfor %}
+                                    {% for fp,report,donation,raised,funding_needed,tfunding,raised_percent in fps %}
+                                    <!--changeText(title, description, raised, raisedremaining, donations, reports, progressbarwidth)-->
+                                    <div onclick="changeText('{{fp.project.id}}','{{fp.project.name}}', '{{fp.project.summary|escape}}', '{{raised}}', '{{funding_needed}}', '{{donation}}', '{{report}}', '{{raised_percent}}%')" class="project_nav_container_image"><a href="#" onclick="switchImg('{{fp.project.get_random_picture.medthumb.url}}')"><img src="{{fp.project.get_random_picture.medthumb.url}}" width="155" height="91" /></a></div>
+                                    {% endfor %}
+
+                                </div><!--end project nav container mid-->
+                                <div class="project_nav_container_right"></div><!--end right-->
+
+
+                            </div><!--end project nav container-->
+
+
+                        </div><!--end bottom content-->
+                        <div class="bottom"></div><!--end bottom-->
+
+
+
+                    </div><!--end project container-->
+
+                    <!--start content table-->
+                    <div class="content_table">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td class="content_table_top_left"></td>
+                                            <td class="content_table_top_mid"></td>
+                                            <td class="content_table_top_right"></td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td class="content_table_mid_left"></td>
+                                            <td align="left" valign="top" class="content_table_mid_mid">
+                                                <div><h1>From Our Blog</h1></div>
+                                                <div class="clear"></div>
+                                                <div class="recentactivity_content">
+                                                    {% for entry in rss %}
+                                                    <div class=" box_ra">
+                                                        <div class="left_ra">
+                                                            <div class="img_holder"><a href="{{entry.link}}" target="_blank"><img src="{{entry.media_content.1.url}}" width="81" height="81" /></a></div><!--end image holder-->
+
+                                                        </div><!--end left ra-->
+                                                        <div class="right_ra">
+                                                            <div>
+                                                                {{ entry.title }}
+                                                            </div>
+                                                            <div class="author">
+                                                                By {{entry.author_detail.name}}
+                                                            </div>
+
+                                                        </div><!--end right ra-->
+
+                                                    </div><!--box ra-->
+
+                                                    {% endfor %}
+
+
+                                                </div><!--end recent activity content-->
+
+
+
+                                            </td><!--end content mid-->
+                                            <td class="content_table_mid_right"></td>
+                                        </tr>
+                                    </table>
+
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td class="content_table_bot_left"></td>
+                                            <td class="content_table_bot_mid"></td>
+                                            <td class="content_table_bot_right"></td>
+                                        </tr>
+                                    </table>
+
+
+                                </td>
+                            </tr>
+                        </table>
+
+
+
+
+                    </div>
+                    <!--end content table-->
+
+                    <!--start share features-->
+                    <div class="share_container"-->
+                        <!--below are image place holders for facebook and twitter api-->
+
+                        <!--facebook api code here-->
+                        <div id="fb-root"></div><script src="https://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like-box href="https://www.facebook.com/helpthemgrow" width="361" show_faces="true" stream="false" header="true"></fb:like-box>
+                        <!--end facebook api code-->
+
+                        <!--twitter api code-->
+                        <div style="float:right; margin-right:5px;">
+                            <script src="/vibha-media/js/twitterwidget.js"></script>
+                            <script>
+                                new TWTR.Widget({
+                                    version: 2,
+                                    type: 'profile',
+                                    rpp: 4,
+                                    interval: 6000,
+                                    width: 340,
+                                    height: 225,
+                                    theme: {
+                                        shell: {
+                                            background: '#7890b3',
+                                            color: '#000000'
+                                        },
+                                        tweets: {
+                                            background: '#ffffff',
+                                            color: '#000000',
+                                            links: '#696edb'
+                                        }
+                                    },
+                                    features: {
+                                        scrollbar: false,
+                                        loop: false,
+                                        live: false,
+                                        hashtags: true,
+                                        timestamp: true,
+                                        avatars: false,
+                                        behavior: 'all'
+                                    }
+                                }).render().setUser('helpthemgrow').start();
+                            </script>
+                        </div>
+                        <!--end twitter api code-->
+                    </div><!--end share container-->
+
+                    <!--end share features-->
+
+                </div><!--end content-->
+
+            </div><!--end container center-->
+            <div class="container_right"></div><!--end container right-->
+
+        </div><!-- end container-->
+        {% endblock%}

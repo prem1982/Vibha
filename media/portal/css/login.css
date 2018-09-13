@@ -1,0 +1,60 @@
+.login{
+padding:10px;
+margin:100px auto;
+background:#FFF;
+width:274px;
+}
+.login h1{
+padding:5px 0 5px 0;
+margin:0 0 10px 0;
+border-bottom:1px #a3a3a3 solid;
+font-size:14px;
+}
+.login .userhead{
+padding:5px 0 0 0;
+margin:0px;
+font-size:11px;
+font-weight:normal;
+}
+.login .inputbox{
+padding:4px;
+margin:3px 0;
+width:221px;
+font-size:11px;
+font-weight:normal;
+border:1px #a3a3a3 solid;
+background:#f6f6f6;
+}
+.login .but_login{
+padding:10px 0 5px 0;
+margin:0px;
+}
+.login h2{
+padding:5px 0 5px 0;
+margin:0px;
+font-size:12px;
+font-weight:bold;
+}
+.login h3{
+padding:5px 0 5px 0;
+margin:0px;
+font-size:11px;
+font-weight:normal;
+}
+.login a{
+color:#000000;
+text-decoration:none;
+}
+.login a:hover{
+color:#999999;
+text-decoration:underline;
+}
+.error{
+padding:0 0 5px 0;
+margin:0px;
+font-size:11px;
+font-weight:normal;
+color:#FF0000;
+}
+
+

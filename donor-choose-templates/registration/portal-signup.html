@@ -1,0 +1,32 @@
+{% extends "base2.dmpl" %}
+
+{% block headers %}
+<style type="text/css">@import "/vibha-media/portal/css/browse-project.css";</style>
+{% endblock %}
+
+{% block content %}
+<!-- Content Start -->
+<div id="maincontent">
+
+<div class="login">
+<h1>Signup</h1>
+	<div class="userhead"><label for="id_username">Username:</label></div>
+	<input id="id_username" type="text" name="username" maxlength="30" />
+	
+	<div class="userhead"><label for="id_username">Email ID:</label></div>
+	<input id="id_username" type="text" name="username" maxlength="30" />
+	
+	<div class="userhead"><label for="id_password">Password</label></div>
+	<input type="password" class="inputbox" name="password"/>
+	
+	<div class="userhead"><label for="id_password2">Confirm Password</label></div>
+	<input type="password" class="inputbox" name="password2"/>
+	
+	<div class="but_login">
+		<input type="image" src="/vibha-media/portal/images/go.jpg" />
+	</div>
+	
+</div>
+</div>
+<!-- Content End -->
+{% endblock %}

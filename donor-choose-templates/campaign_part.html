@@ -1,0 +1,46 @@
+<div class="project_detail">
+
+    <div class="left_img">
+	<img src="{{ campaign.project.get_random_picture.thumbnail.url }}" width="187" height="172">
+    </div>
+
+    <div class="right_con">
+	
+	<div class="lt_content">
+	    <a href="{% url project_page campaign.project.slug %}"><h1 style="background:none;font-weight:bold">{{ campaign.project.name }}</h1></a>
+	    <p> {{ campaign.project.summary }} <br></p>
+	    <hr/>
+	    {% block campaign_by %}
+			<p>Campaign by: <b><a href="{{campaign.user.get_profile.get_absolute_url}}">{{ campaign.user.get_full_name }}</a></b></p>
+		{% endblock %}		
+		<p>Campaign Started Date: <b>{{ campaign.date_added|date }}</b></p>
+		<p>Campaign End Date: <b>{{ campaign.end_date|date }}</b></p>
+	    <p>Appeal: {{ campaign.description }} </p>
+	</div>
+		
+	<div class="action_items">    
+	    <span class="sp_left">Campaign Amount:</span> <span class="amt">{{ campaign.amount }}</span>
+	</div>
+
+	<div class="action_items">
+	    <span class="sp_left">Amount Collected:</span> <span class="col">{{ campaign.amount_collected|default:"0" }}</span>
+	</div>
+
+	<div class="right">
+{% if not campaign.is_completed %}
+		<form action="{% url portal_cart %}" method="post">		
+			<input type="hidden" name="cid" value="{{ campaign.id }}">		    
+			<input type="image" src="/vibha-media/portal/images/add-cart.gif" />
+		</form>		
+{% endif %}
+		{% if show_permalink %}
+		{% block visit_campaign %}
+	    <a href="{% url portal_campaign campaign.id %}"><img src="/vibha-media/portal/images/visit_cp.gif" border="0" align="absmiddle" /></a>
+		{% endblock %}
+		{% endif %}
+	</div>
+    </div>
+   
+    <div class="clr"></div>
+
+</div>

@@ -1,0 +1,38 @@
+{% extends "base2.dmpl" %}
+
+{% block headers %}
+<style type="text/css">@import "/vibha-media/portal/css/login.css";</style>
+{% endblock %}
+
+{% block content %}
+<!-- Content Start -->
+
+
+<div class="login">
+	<h1>Login:</h1>
+	<form action="{% url login_view %}" method="post">
+		{% block messages %}
+			{% if info %}
+				    <p style="color:green;"class="error">You have successfully registered. Login now</p>
+			{% endif %}
+		{% endblock %}
+
+		{% if form.errors %}
+			<p class="error">Invalid credentials entered. Sorry, couldn't sign you in.</p>
+		{% endif %}
+	
+		<div class="userhead">Username or email </div>
+		<input type="text" class="inputbox" name="username" value="" id="username" />
+		<div class="userhead">Password</div>
+		<input type="password" class="inputbox" name="password" value="" id="password" />
+		<div class="but_login submit">
+			<input type="image" src="/vibha-media/portal/images/login.jpg" value="login" />
+		</div>
+		<input type="hidden" name='next' value="{{next}}" />		
+		<br />
+		<h3><a href="{% url forgot_password1 %}">Forgot Password?</a></h3>
+		<h3>New? <a href="{% url register_view %}">Register Now</a></h2>
+	</form>
+</div>
+<!-- Content End -->
+{% endblock %}

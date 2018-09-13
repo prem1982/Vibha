@@ -1,0 +1,306 @@
+{% extends "base.dmpl" %}
+
+{% load vibhaform %}
+{% load captcha %}
+
+{% block title %} Donate to Vibha {% endblock %}
+
+{% block additionalHeaders %}
+<style type="text/css">@import "/vibha-media/css/vibhaform.css";</style>
+<style type="text/css">@import "/vibha-media/css/autocomplete.css";</style>
+<script src="/vibha-media/js/scriptaculous/prototype.js"     type="text/javascript"></script>
+<script src="/vibha-media/js/scriptaculous/scriptaculous.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript">
+  /*
+   * Use one of the predefined amounts or a custom amount
+   */
+  var enable_or_disable_amount_field = function(event) {
+    if ($F('id_amount_choice_5') != null) {
+      if (event != null) {
+        $('id_amount').clear();
+      }
+      $('id_amount').enable();
+    } else {
+      [ 'id_amount_choice_0', 'id_amount_choice_1', 'id_amount_choice_2', 'id_amount_choice_3', 'id_amount_choice_4' ].each(function(s) {
+        if ($F(s) != null) {
+          $('id_amount').value = $F(s);
+          $('id_amount').disable();
+        }
+      });
+    }
+  }
+
+  /*
+   * Auto fill the cc_name field to be "first_name + last_name"
+   */
+  var auto_fill_cc_name = function(event) {
+    $('id_cc_name').value = $F('id_first_name') + " " + $F('id_last_name');
+  }
+
+  function popUp(URL) {
+    day = new Date();
+    id = day.getTime();
+    eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=400,height=400');");
+  }
+
+  /*
+   * After the document has loaded, add listeners that call the above
+   * functions.
+   */
+  Event.observe(window, 'load', function() {
+    /* Amount field */
+    $('id_amount_choice_0', 'id_amount_choice_1', 'id_amount_choice_2', 'id_amount_choice_3',
+      'id_amount_choice_4', 'id_amount_choice_5').invoke('observe', 'change', enable_or_disable_amount_field);
+    $('id_amount_choice_0', 'id_amount_choice_1', 'id_amount_choice_2', 'id_amount_choice_3',
+      'id_amount_choice_4', 'id_amount_choice_5').invoke('observe', 'select', enable_or_disable_amount_field);
+    $('id_amount_choice_0', 'id_amount_choice_1', 'id_amount_choice_2', 'id_amount_choice_3',
+      'id_amount_choice_4', 'id_amount_choice_5').invoke('observe', 'click', enable_or_disable_amount_field);
+    enable_or_disable_amount_field(null);
+    /* Auto file credit card name */
+    $('id_first_name', 'id_last_name').invoke('observe', 'change', auto_fill_cc_name);
+  });
+</script>
+{% endblock %}
+
+{% block contentBox %}
+
+    <noscript>
+        <span class="javascript-not-enabled" style="background-color: #FAD163; padding: 2ex; display: block; text-align: center; font-size: 11pt; margin-left: auto; margin-right: auto;">
+            Enabling Javascript will enhance the usability of this page.
+        </span>
+    </noscript>
+
+<!--
+<p style="font-size: 9pt;">
+So far, in the year 2007, Vibha has raised about $509,000 towards the cause of child development. In the year 2008, we plan to support projects worth $700,000 including $100,000 for expanding our existing projects. Towards enabling this goal, we have set ourselves a challenge of raising $20,000 in the last 20 days of 2007. Your contribution through the Vibha Twenty20 Challenge will enable Vibha to expand our high performance projects to include a greater number of beneficiaries.
+</p>
+-->
+
+{% block dreamRegistryDonation %}{% endblock %}
+{% block projectSpecificDonation %}{% endblock %}
+<p style="font-size: 8pt;"> 
+Note: For the protection of
+Vibha donors, your IP address is recorded when you click submit. Vibha
+proactively cooperates with law enforcement agencies in the case of
+any fraudulent activities. If you have any difficulty with this page
+or have any feedback, please email us at <a
+href="mailto:donations@vibha.org">donations@vibha.org</a>.
+</p>
+
+<p style="color: red; text-align: center;"> Fields in red are required. </p>
+
+    {% if form.errors %}
+        <p style="font-size: 11pt">Please correct the following errors below (fields shown in red) </p>
+        <!-- {{ form.errors }} -->
+    {% endif %}
+
+    <form class="vibhaform" method="post" action="" >
+        {{ form.dream_event_id }}
+        {{ form.project_id }}
+        <fieldset>
+            <legend>Personal information</legend>
+                {{ form.email|formfield }}
+                {{ form.first_name|formfield }}
+                {{ form.last_name|formfield }}
+                {{ form.address_1|formfield }}
+                {{ form.address_2|formfield }}
+                {{ form.city|formfield }}
+                {{ form.state|formfield }}
+                {{ form.zipcode|formfield }}
+                {{ form.country|formfield }}
+                {{ form.action_center|formfield }}
+                {{ form.phone|formfield }}
+        </fieldset>
+        <fieldset id="singledonation-creditcard-info">
+            <legend>Credit card information</legend>
+                {{ form.cc_name|formfield }}
+                {{ form.credit_card|formfield }}
+                {{ form.expr_date|formfield }}
+                {{ form.cvv|formfield }}
+        </fieldset>
+        <fieldset>
+            <legend>Donation amount (USD)</legend>
+                {{ form.amount_choice|formfield_without_label }}
+                {{ form.amount|formfield }}
+<p style="font-size: 8pt;">
+<b>$20</b> funds educational materials for a child <br />
+<b>$50</b> funds rehabilitation of a severely mentally handicapped child <br />
+<b>$120</b> funds quality education for a child <br />
+<b>$420</b> funds immunizations for 12 children <br />
+<b>$900</b> funds a non-formal education center for 25 kids <br />
+(Annual costs based on Vibha supported projects. Numbers vary from project to project.)
+</p>
+        </fieldset>
+
+        {% captcha_field form %}
+
+        <fieldset>
+            <legend>Matching donations</legend>
+
+	    <p style="font-size: 10pt;"> 
+	    <b> Multiply your donation! Get it matched from your company </b> <br /> <br />
+
+	    <b> <a href="http://www.vibha.org/matching" target=_blank>
+            Click here for a list of companies</a> that have matched
+            donations to Vibha in the past.</b> Please enter the name
+            even if your company is not in the list. They very well
+            might match donations.
+	    </p>
+
+            {{ form.company_name|formfield }}
+            <div class="page_name_auto_complete" id="id_company_name_auto_complete"></div>
+            <script type="text/javascript">
+                new Ajax.Autocompleter("id_company_name",
+                                       "id_company_name_auto_complete",
+                                       "/ajax/companies/",
+                                       { minChars: 2,
+                                         paramName: 'search',
+                                         afterUpdateElement: function(text, li) { $('id_company_id').value = li.id; },
+                                       });
+            </script>
+            {{ form.company_id }}
+        </fieldset>
+
+        <fieldset>
+	    <legend>Communication Preferences </legend>
+                <table>
+                <tr style="font-size: 8pt;">
+                <td style="border:0px;"> {{ form.paper_receipt }} </td>
+		<td style="border:0px;"> <b> <span style="color: green;">Go
+        Green!</span> </b> E-mail me my receipt. (Check for a paper receipt) </td>
+		</tr>
+                <tr style="font-size: 8pt;">
+                <td  style="border:0px;"colspan="2">		
+		I would like to receive infrequent communication from Vibha regarding the following (uncheck the boxes if you don't want to):
+		</td>
+		</tr>
+                <tr style="font-size: 8pt;">
+                <td style="border:0px;"> {{ form.project_subscription }} </td>
+		<td style="border:0px;"> <b>Projects</b>: Information on Vibha supported projects and how my donation is making a difference. </td>
+		</tr>
+		<tr style="font-size: 8pt;">
+                <td style="border:0px;">{{ form.event_subscription }} </td>
+		<td style="border:0px;"> <b>Events</b>: Information on Vibha occasions and festivities in my area - walk/runs, concerts, dandia, cricket tournaments etc.</td>
+		</tr>
+		</table>
+	</fieldset>
+
+        {% block referringVolunteer %}
+        {% endblock %}
+
+	<fieldset>
+            <legend>Comments</legend>
+            If you are making a donation in honor of someone or you
+            heard about Vibha from someone, please enter their name
+	    and/or other comments below.
+	        {{ form.referrer|formfield }}
+                {{ form.comments|formfield }}
+        </fieldset>
+
+<p style="font-size: 9pt;"> By pressing Submit, I certify that I am
+authorized to use the credit card in consideration. I also authorize
+Vibha to deduct my contribution once from the above account.
+</p>
+
+<script type="text/javascript" src="https://seal.thawte.com/getthawteseal?host_name=secure.vibha.org&amp;size=M&amp;lang=en"></script>
+
+<!--
+<center>
+<script src="https://siteseal.thawte.com/cgi/server/thawte_seal_generator.exe">
+</script>
+</center>
+!-->
+
+<p style="text-align: center;">
+        <input type="hidden" name="form_step" value="confirm_details" /> 
+        <button type="submit">Submit</button>
+        <button type="reset" >Reset </button>
+</p>
+
+    </form>
+{% endblock %}
+{% block rightBox %}
+<div class="sidebar_head"> Google </div>
+<div class="sidebar_content">
+<p style="font-size: 10pt; text-align: left;">
+If you wish to donate using <b>Google Checkout</b>, please click on the donate button below (needs a google account).
+</p>
+<script type="text/javascript"> 
+function validateAmount(amount){
+if(amount.value.match( /^[0-9]+(\.([0-9]+))?$/)){
+return true;
+}else{
+alert('You must enter a valid donation.');
+amount.focus();
+return false;
+}
+}
+</script>
+<center>
+<form action="https://checkout.google.com/cws/v2/Donations/477371270443650/checkoutForm" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" onSubmit="return validateAmount(this.item_price_1)">
+    <input name="item_name_1" type="hidden" value="Donation to Vibha"/>
+    <input name="item_description_1" type="hidden" value="Donation to Vibha{%if project %}: {{ project.slug }}{% endif %}{%if dream_event %}: {{ dream_event.slug }}{% endif %}"/>
+    <input name="item_quantity_1" type="hidden" value="1"/>
+    <input name="item_currency_1" type="hidden" value="USD"/>
+    <input name="item_is_modifiable_1" type="hidden" value="true"/>
+    <input name="item_min_price_1" type="hidden" value="0.01"/>
+    <input name="item_max_price_1" type="hidden" value="25000.0"/>
+    <input name="_charset_" type="hidden" value="utf-8"/>
+    <table cellpadding="0" cellspacing="0" width="1%">
+        <tr>
+            <td align="center" nowrap="nowrap" width="1%" style="padding: 0;border:0px;">&#x24; <input id="item_price_1" name="item_price_1" onfocus="this.style.color='black'; this.value='';" size="10" style="color:grey;" type="text" value="Enter Amount"/>
+            </td>
+	    </tr>
+	    <tr>
+            <td align="center" width="1%" style="padding: 0;border:0px;">
+                <input alt="Donate" src="https://checkout.google.com/buttons/donateNow.gif?merchant_id=477371270443650&amp;w=115&amp;h=50&amp;style=trans&amp;variant=text&amp;loc=en_US" type="image"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</center>
+</div>
+
+<div class="sidebar_head"> PayPal </div>
+<div class="sidebar_content">
+<p style="font-size: 10pt; text-align: left;">
+If you wish to donate using <b>PayPal</b>, please click on the donate button below
+</p>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_donations">
+<input type="hidden" name="business" value="donations@vibha.org">
+<input type="hidden" name="item_name" value="Make a donation to Vibha (contribution tax-exempt in the US){%if project %}: {{ project.slug }}{% endif %}{%if dream_event %}: {{ dream_event.slug }}{% endif %}">
+<input type="hidden" name="page_style" value="Primary">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="return" value="http://secure.vibha.org/donations/single/thanks-other/">
+<input type="hidden" name="cancel_return" value="http://www.vibha.org">
+<input type="hidden" name="cn" value="Comments">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="tax" value="0">
+<input type="hidden" name="lc" value="US">
+<input type="hidden" name="bn" value="PP-DonationsBF">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+<br />
+</div>
+
+<div class="sidebar_head"> Other Ways</div>
+<div class="sidebar_content">
+<p style="font-size: 10pt; text-align: left;">
+You may also donate via the following means: <br />
+<p> <b> <a href="https://www.justgive.org/nonprofits/donate.jsp?ein=22-3122761"> JustGive </a> </b></p>
+<p> <b> <a href="https://www.networkforgood.org/donation/ExpressDonation.aspx?ORGID2=22-3122761"> Network For Good </a> </b></p>
+
+<div class="sidebar_head"> Help Them Grow </div>
+<div class="sidebar_content">
+<p style="font-size: 10pt; text-align: left;">
+Did you know that it is easy to make a monthly donation to Vibha? 
+</p>
+<p style="font-size: 10pt; text-align: left;">
+Click on the image below for more information.
+</p>
+<a href="http://www.vibha.org/htg"> <img  src="/vibha-media/img/HAC_Help_Them_Grow.jpg" width="140" height="294"> </a>
+</div>
+{% endblock %}

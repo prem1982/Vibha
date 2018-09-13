@@ -1,0 +1,168 @@
+{% extends "dreammile-base.html" %}
+
+{% load vibhaform %}
+{% load captcha %}
+
+{% block MediaWikiCommonCss %}{% endblock %}
+
+{% block additionalHeaders %}
+<style type="text/css">@import "/vibha-media/css/vibhaform.css";</style>
+<style>
+.vibhaform div.hasnoformerror {
+    border: 1px solid #ffffff;
+}
+</style>
+<style type="text/css">@import "/vibha-media/css/autocomplete.css";</style>
+<script src="/vibha-media/js/scriptaculous/prototype.js"     type="text/javascript"></script>
+<script src="/vibha-media/js/scriptaculous/scriptaculous.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript">
+  /*
+   * Use one of the predefined amounts or a custom amount
+   */
+  var enable_or_disable_amount_field = function(event) {
+    if ($F('id_amount_choice_5') != null) {
+      if (event != null) {
+        $('id_amount').clear();
+      }
+      $('id_amount').enable();
+    } else {
+      [ 'id_amount_choice_0', 'id_amount_choice_1', 'id_amount_choice_2', 'id_amount_choice_3', 'id_amount_choice_4' ].each(function(s) {
+        if ($F(s) != null) {
+          $('id_amount').value = $F(s);
+          $('id_amount').disable();
+        }
+      });
+    }
+  }
+
+  /*
+   * Auto fill the cc_name field to be "first_name + last_name"
+   */
+  var auto_fill_cc_name = function(event) {
+    $('id_cc_name').value = $F('id_first_name') + " " + $F('id_last_name');
+  }
+
+  function popUp(URL) {
+    day = new Date();
+    id = day.getTime();
+    eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=400,height=400');");
+  }
+
+  /*
+   * After the document has loaded, add listeners that call the above
+   * functions.
+   */
+  Event.observe(window, 'load', function() {
+    /* Amount field */
+    $('id_amount_choice_0', 'id_amount_choice_1', 'id_amount_choice_2', 'id_amount_choice_3',
+      'id_amount_choice_4', 'id_amount_choice_5').invoke('observe', 'change', enable_or_disable_amount_field);
+    $('id_amount_choice_0', 'id_amount_choice_1', 'id_amount_choice_2', 'id_amount_choice_3',
+      'id_amount_choice_4', 'id_amount_choice_5').invoke('observe', 'select', enable_or_disable_amount_field);
+    $('id_amount_choice_0', 'id_amount_choice_1', 'id_amount_choice_2', 'id_amount_choice_3',
+      'id_amount_choice_4', 'id_amount_choice_5').invoke('observe', 'click', enable_or_disable_amount_field);
+    enable_or_disable_amount_field(null);
+    /* Auto file credit card name */
+    $('id_first_name', 'id_last_name').invoke('observe', 'change', auto_fill_cc_name);
+  });
+</script>
+{% endblock %}
+
+{% block contentBox %}
+
+    <noscript>
+        <span class="javascript-not-enabled" style="background-color: #FAD163; padding: 2ex; display: block; text-align: center; font-size: 11pt; margin-left: auto; margin-right: auto;">
+            Enabling Javascript will enhance the usability of this page.
+        </span>
+    </noscript>
+
+<p style="font-size: 8pt; color: #d00000;"> 
+Note: For the protection of
+Vibha donors, your IP address is recorded when you click submit. Vibha
+proactively cooperates with law enforcement agencies in the case of
+any fraudulent activities. If you have any difficulty with this page
+or have any feedback, please email us at <a
+href="mailto:donations@vibha.org">donations@vibha.org</a>.
+</p>
+
+    {% if form.errors %}
+        <p style="font-size: 11pt">Please correct the following errors below (fields shown in red) </p>
+        <!-- {{ form.errors }} -->
+    {% endif %}
+
+    <form class="vibhaform" style="width: 500px;" method="post" action="" >
+        {{ form.champion_id }}
+        <fieldset>
+            <legend>Personal information</legend>
+                {{ form.email|formfield }}
+                {{ form.first_name|formfield }}
+                {{ form.last_name|formfield }}
+                {{ form.address_1|formfield }}
+                {{ form.address_2|formfield }}
+                {{ form.city|formfield }}
+                {{ form.state|formfield }}
+                {{ form.zipcode|formfield }}
+                {{ form.country|formfield }}
+                {{ form.phone|formfield }}
+                {{ form.anonymous|formfield }}
+        </fieldset>
+        <fieldset id="singledonation-creditcard-info">
+            <legend>Credit card information</legend>
+                {{ form.cc_name|formfield }}
+                {{ form.credit_card|formfield }}
+                {{ form.expr_date|formfield }}
+                {{ form.cvv|formfield }}
+        </fieldset>
+        <fieldset>
+            <legend>Matching donations</legend>
+            If your company/organization matches donations, please enter
+            the name here.
+            {{ form.company_name|formfield }}
+            <div class="page_name_auto_complete" id="id_company_name_auto_complete"></div>
+            <script type="text/javascript">
+                new Ajax.Autocompleter("id_company_name",
+                                       "id_company_name_auto_complete",
+                                       "/ajax/companies/",
+                                       { minChars: 2,
+                                         paramName: 'search',
+                                         afterUpdateElement: function(text, li) { $('id_company_id').value = li.id; },
+                                       });
+            </script>
+            {{ form.company_id }}
+        </fieldset>
+
+        {% captcha_field form %}
+        <fieldset>
+            <legend>Donation amount (USD)</legend>
+                {{ form.amount_choice|formfield_without_label }}
+                {{ form.amount|formfield }}
+<p style="font-size: 8pt;">
+$25 can help fund the school supplies for a child for one year while $3000 will fund a teacher trainee to train teachers, impacting 15,000 students.
+</p>
+        </fieldset>
+        <fieldset>
+            <legend>Comments</legend>
+                {{ form.comments|formfield }}
+        </fieldset>
+
+<p style="font-size: 9pt;"> By pressing Submit, I certify that I am
+authorized to use the credit card in consideration. I also authorize
+Vibha to deduct my contribution once from the above account.
+</p>
+
+
+<center>
+<script src="https://siteseal.thawte.com/cgi/server/thawte_seal_generator.exe">
+</script>
+</center>
+
+<p style="text-align: center;">
+        <input type="hidden" name="form_step" value="confirm_details" /> 
+        <button type="submit">Submit</button>
+        <button type="reset" >Reset </button>
+</p>
+
+    </form>
+{% endblock %}
+{% block googleAnalytics %}
+<!-- No googleAnalytics -->
+{% endblock %}

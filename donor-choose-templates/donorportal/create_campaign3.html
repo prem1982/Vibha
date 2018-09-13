@@ -1,0 +1,41 @@
+{% extends "base2.dmpl" %}
+
+{% block headers %}
+    <link rel="stylesheet" type="text/css" href="/media/css/forms.css" /> 
+    <script type="text/javascript" src="/my_admin/jsi18n"></script>
+    <script type="text/javascript" src="/media/js/core.js"></script>
+    {{form.media}}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="create-compaign">
+<h1>You are now going to campaign for {{ project.name }}.</h1>       
+
+    <p style="font-size:14px; padding:0 0 15px 0;">
+    {{ project.summary }}</p>
+    
+<div class="main_fund">
+    <div class="action_items">    
+        <span class="sp_left">
+            Funding Required:</span> <span class="amt"> {{ funding_detail.budget }}
+        </span>
+    </div>
+    <form class="design" method='post' action="">
+    <table width="75%">
+    {{ form.as_table }}
+    <input type="hidden" name="form-type" value="message-form">
+    <tr><td colspan="100%"><input type='submit'></td></tr>
+    </table>
+    </form>
+    <div class="clr"></div>
+    <p><br /></p>
+    <p><br /></p>
+    <p><br /></p>
+    <p><br /></p>
+</div>
+</div>
+
+<p><br/><br/><br></p>
+{% endblock %}

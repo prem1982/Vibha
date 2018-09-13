@@ -1,0 +1,216 @@
+{% extends "projects/base.dmpl" %}
+
+{% block title %} Vibha : Factsheet : {{ project.name }} {% endblock %}
+
+{% block contentBox %}
+<p align="center">
+<strong> <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> (Id: {{ project.id3 }})</strong>
+</p>
+
+<h2> Person to go after, if data below is incomplete (aka. Project Lead) </h2>
+<p>
+<table class="other">
+<tr class="s0">
+  <td> 
+    Name
+  </td>
+  <td>
+    {{ lead }}
+  </td>
+</tr>
+<tr class="s1">
+  <td> 
+    E-mail
+  </td>
+  <td>
+    {{ lead.email }}
+  </td>
+</tr>
+</table>
+</p>
+
+<h2> Organization </h2>
+<p>
+<table class="other">
+<tr class="s0">
+  <td> 
+    Name
+  </td>
+  <td>
+    {{ organization.name }}
+  </td>
+</tr>
+<tr class="s1">
+  <td> 
+    Address
+  </td>
+  <td>
+    {{ organization.address_1 }} <br />
+    {{ organization.address_2 }} <br />
+    {{ organization.address_3 }} <br />
+    {{ organization.city }} - {{ organization.zipcode }} <br />
+    {{ organization.state }}
+  </td>
+</tr>
+<tr class="s0">
+  <td> 
+    Phone
+  </td>
+  <td>
+    {{ organization.phone }}
+  </td>
+</tr>
+<tr class="s1">
+  <td> 
+    E-mail
+  </td>
+  <td>
+    {{ organization.email }}
+  </td>
+</tr>
+<tr class="s0">
+  <td> 
+    Contact
+  </td>
+  <td>
+    {{ organization.contact }}
+  </td>
+</tr>
+<tr class="s1">
+  <td> 
+    Title
+  </td>
+  <td>
+    {{ organization.contact_title }}
+  </td>
+</tr>
+</table>
+</p>
+
+<h2> <a href="{{ organization.get_admin_url }}">Bank details</a> </h2>
+<p>
+<table class="other">
+<tr class="s0">
+  <td> 
+    FCRA number
+  </td>
+  <td>
+    {{ organization.fcra }}
+  </td>
+</tr>
+<tr class="s1">
+  <td> 
+    FCRA status
+  </td>
+  <td>
+    {{ organization.get_fcra_status_display }}
+  </td>
+</tr>
+<tr class="s0">
+  <td> 
+    Bank
+  </td>
+  <td>
+    {{ organization.bank_name }}
+  </td>
+</tr>
+<tr class="s1">
+  <td> 
+    Address
+  </td>
+  <td>
+    {{ organization.bank_address }}
+  </td>
+</tr>
+<tr class="s0">
+  <td> 
+    A/c name
+  </td>
+  <td>
+    {{ organization.bank_ac_name }}
+  </td>
+</tr>
+<tr class="s1">
+  <td> 
+    A/c number
+  </td>
+  <td>
+    {{ organization.bank_ac_num }}
+  </td>
+</tr>
+<tr class="s0">
+  <td> 
+    Bankinfo
+  </td>
+  <td>
+    {{ organization.bank_xfer|linebreaksbr }}
+  </td>
+</tr>
+</table>
+</p>
+
+<h2> Project Funding details </h2>
+<p>
+{% if fundingS %}
+  <table class="other">
+    <tr class="heading">
+      <td> Period start </td>
+      <td> Period end </td>
+      <td> # Children </td>
+      <td> Budget </td>
+      <td> Exchange rate </td>
+    </tr>
+    {% for funding in fundingS %}
+        <tr class="{% cycle s0,s1 %}">
+          <td> <a href="{{ funding.get_admin_url }}" target="_blank">{{ funding.begin_date }}</a> </td>
+          <td> {{ funding.end_date }} </td>
+          <td> {{ funding.child_count }} </td>
+          <td> {{ funding.budget }} </td>
+          <td> {{ funding.xchange_rt }} </td>
+        </tr>
+    {% endfor %}
+  </table>
+{% else %}
+None available
+</p>
+{% endif %}
+
+<h2> Disbursals </h2>
+<p>
+{% if disbursalS %}
+  <table class="other">
+    <tr class="heading">
+      <td> Scheduled date </td>
+      <td> Disbursed date </td>
+      <td> Amount </td>
+    </tr>
+    {% for disbursal in disbursalS %}
+        <tr class="{% cycle s0,s1 %}">
+          <td> <a href="{{ disbursal.get_admin_url }}" target="_blank">{{ disbursal.scheduled_date }}</a> </td>
+          <td> {{ disbursal.disbursed_date }} </td>
+          <td> {{ disbursal.amount }} </td>
+        </tr>
+    {% endfor %}
+  </table>
+{% else %}
+None available
+{% endif %}
+</p>
+{% endblock %}
+
+{% block rightBox %}
+  <!-- reportS -->
+  <h2> Reports </h2>
+  <p>
+  {% if reportS %}
+    <ul>
+      {% for report in reportS %}
+      <li> {{ report.report_date|date:"M Y" }}:
+        <a href="{{ report.get_report_file_url_custom }}">{{ report.desc }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    No report uploaded
+  {% endif %}
+  </p>
+{% endblock %}

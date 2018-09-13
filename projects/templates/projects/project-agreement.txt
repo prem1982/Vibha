@@ -1,0 +1,188 @@
+{% load projects_extras %}
+
+$ Partnership Agreement
+
+# Agreement between Vibha and {{ organization|typewriter }}
+
+This agreement is a guideline that is mutually agreed upon between Vibha and
+{{ organization|typewriter }} with the objective of developing a healthy
+relationship between the two organizations.
+
+Vibha is a registered non-profit organization in the USA (Registered Name: Help
+Them Grow Inc.).  It is a volunteer-driven organization with volunteers in the
+United States and India who raise funds by organizing events to create
+awareness in the local community about children's issues.
+{{ organization|typewriter }} a registered voluntary, non-profit organization in
+{{ project.location|typewriter }} the registration number
+{{ organization.soc_reg|typewriter }} and date of
+registration {{ "XXXX"|typewriter }}. The FCRA registration number and date are
+{{ organization.fcra|typewriter }} and {{ "XXXX"|typewriter }} respectively.
+
+# Introduction
+
+This Agreement is intended to recognize that there is more to the partnership
+than a formal contractual agreement. This Agreement is thus a statement of a
+shared vision and a commitment to address the issues facing underprivileged
+children irrespective of their background. Since this is a learning experience
+for both organizations, the formalization of this mutual commitment should lead
+to a better understanding, enhanced outcomes and thus greater benefits to all
+beneficiaries and stakeholders. 
+
+# Opportunities and Scope 
+
+Vibha and its partner organization {{ project.organization|typewriter }} will
+continue to work together provided that such an association continues to
+coincide with the vision and mission of both organizations. This partnership
+will include any inputs, financial or other, that Vibha is able to provide to
+enhance the performance of the sponsored project {{ project|typewriter }}.
+
+Vibha has approved a sum of Rs. {{ funding.budget|floatformat:2|typewriter }} for the
+period {{ funding.begin_date|typewriter }} - {{ funding.end_date|typewriter }}
+in support of the proposal submitted by {{ project.external_contact|typewriter }} as
+detailed in the proposed budget. The proposal is for the sponsored project
+titled {{ project|typewriter }}.
+
+Renewal of support for the subsequent year will be subject to project
+performance as per the final proposal and budget, satisfactory monitoring
+visits by Vibha personnel and an annual review by Vibha.  
+
+# Individual Roles
+
+This defines the activities to be carried out by both the organizations and may
+perhaps lead to the building of alliances between ____________ and other Vibha
+partners in India 
+
+# Roles and Responsibilities
+
+{{ organization|typewriter }} will assume responsibility for:
+
+* Implementing project-specific roles as defined in the project proposal. 
+
+* Providing reports and accounts as outlined under "Reporting Requirements".
+
+* Ensuring that the funds are used in accordance to the attached budget and for
+the purpose specified. No changes greater than 5% in any line item of the
+budget for direct implementation and greater than 3% in indirect and
+administrative budget lines in the use of this grant will be made without
+obtaining prior written or email approval from Vibha.
+{{ project.external_contact|typewriter }} will acknowledge receipt of their grant by
+producing a letter or e-mail acknowledging both the receipt and the purpose for
+which the grant is made.
+
+* Ensuring that a representative of XXXX {{ project|typewriter }} is available
+to meet visitors from Vibha, provided that prior arrangements have been made
+between Vibha and XXXX.
+
+* Allowing Vibha to conduct monitoring visits to the project without prior
+notification.
+
+* Providing open and honest feedback during monitoring visits and evaluation
+exercises.
+
+* When organizational development support is agreed upon, ensuring that staff is
+available and prepared to make maximum use of these inputs.
+
+* Providing information requested by Vibha that may assist in fundraising.
+
+* Allowing Vibha to use material from the project for marketing collateral.
+Materials from the project include, but not limited to, pictures, videos,
+success stories and various statistics about its programs.
+
+* Providing assistance to Vibha in gathering material about the project for
+promotional purposes.  Allowing Vibha to share pictures with other
+organizations that fund the project under the following circumstances pictures
+are part of the project portfolio.  pictures which are not for exclusive use by
+Vibha. Pictures for exclusive use by Vibha have "Copyright &copy; Help The Grow
+Inc." marking.  Vibha funding of the project is active.
+
+
+Vibha will assume responsibility for:
+
+* Providing funding for projects that {{ project.external_contact|typewriter }}
+has proposed and Vibha has agreed to support in a timely manner.
+
+* Providing organizational development inputs, where appropriate. These inputs
+may include joint training with other partners or one-on-one inputs provided by
+Vibha or an external expert.                                     
+
+* Ensuring that all costs incurred by _________ during visits by Vibha personnel/
+volunteers are met by Vibha.
+
+* Helping to facilitate links with other partner organizations, where sharing of
+information and experience would be useful.
+
+* Ensuring that all information obtained from the project will be used solely for
+education or fundraising, and no sensitive information will be used for such
+purpose.
+
+Agreement between Vibha and {{ organization|typewriter }} (the partner) also includes that
+Vibha:
+
+* May use material from the project to promote Vibha's fundraisers, programs and
+to raise awareness about child related issues. Vibha's promotional material
+includes, but not limited to web sites, printed material, internet advertising
+and apparel.
+
+* Respects the privacy of every child and will not reveal the identity of any
+child or individual in the promotional material.
+
+* Can use material from the project in marketing collateral for a period of five
+years. This period runs from {{ today|typewriter }} to {{ fiveyearsfromtoday|typewriter }}.
+
+* May acquire material from the project through its employees and/or volunteers.
+Pictures provided by the project or taken by volunteers/employees of Vibha for
+exclusive use in marketing material will not be shared with other organizations
+funding the project. Pictures for exclusive use by Vibha have "Copyright &copy;
+Help Them Grow Inc." marking.
+
+* Is free to use any publicly available material about the project in Vibha's
+marketing collateral. Examples of publicly available material are project's
+web site, newspaper articles/stories and TV/Radio clips.
+
+# Joint Roles
+
+Vibha and {{ organization|typewriter }} will assume joint responsibility for:
+
+* Finding and implementing ways to develop the project.  
+
+* Annually reviewing the Grant Agreement in order to ensure that it continues to
+strengthen the partnership.
+
+# Reporting Requirements
+
+Reporting and Evaluation is an important tool for both Vibha and
+{{ organization|typewriter }}; it allows both of us to understand the progress of the
+project. It is also a basis for review when the project requires renewal of
+funding and is essential feedback for our donors. Quarterly reports on project
+activities and six-monthly financial statements on usage of
+funds/variances/unspent budget against approved budget will be provided by
+XXXX.  An audited, consolidated financial statement reflecting the
+income/expenditure at the end of the project period or financial period will be
+provided by XXXX. If the project requires renewal of funds at the end of
+the project period of one year, a request for funding renewal along with a
+brief plan for the project for the upcoming year along with a budget must also
+be attached.
+
+# Disputes and Termination
+
+If Vibha reasonably believes that the funded partner is no longer able to
+fulfil its obligations as outlined in the agreement, Vibha reserves the right
+to cancel all or part of the funding agreed.
+
+If the partner reasonably believes Vibha is failing to fulfil its obligations,
+this should be conveyed immediately to the Vibha Project Lead who will
+investigate and respond promptly to the partner organization.
+
+# I accept the terms of this agreement
+
+Signed for Vibha
+
+Signature  _________     Name: ____________
+
+Position: ___________     Date: {{ today|typewriter }}
+
+Signed for {{ organization|typewriter }}
+
+Signature  _________     Name: ____________
+
+Position: ___________     Date: {{ today|typewriter }}

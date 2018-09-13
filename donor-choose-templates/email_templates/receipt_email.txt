@@ -1,0 +1,41 @@
+{% block greeting %}
+Dear {{ donation.first_name }} {{ donation.last_name }},
+
+On behalf of Vibha, I would like to thank you very much for your
+contribution! The official receipt of your donation can be found at
+the end of this email.
+
+Your donation goes a long way. A new book to write in, a new pair of
+clothes, an additional teacher for the classroom, a nutritious meal,
+or even that painful immunization shot - these are some of the ways
+your donation will make a difference in the life of a child.
+
+We look forward to your continued support as we strive to reach many
+more children who are in dire need of care. Please let me know if you
+have any questions/feedback regarding this donation or our work at
+Vibha.
+
+With best regards,
+
+Rajesh Haridas,
+Chief Operating Officer,
+Vibha (Help Them Grow Inc)
+1030 E El Camino Real #424
+Sunnyvale, CA 94087
+(408) 997-9992
+office@vibha.org
+
+====================================================================
+For your tax purposes, this receipt will serve as our official
+acknowledgment of your contribution. Vibha did not provide any goods
+or services in whole or partial consideration for this contribution.
+
+Receipt# : {{ donation.receipt_number }}
+Donation Date: {{ donation.signup_date|date:"D M j H:i:s T Y" }} (PST+8)
+Donation Amount: ${{ donation.amount }} 
+First Name: {{ donation.first_name }}
+Last Name: {{ donation.last_name }}
+Address: {{ donation.address_1 }}, {% if donation.address_2 %}{{ donation.address_2}},{%endif%}, {{donation.city}}, {{donation.state }} {{donation.zipcode }}
+Donation Mode: Credit Card
+
+{% endblock %}

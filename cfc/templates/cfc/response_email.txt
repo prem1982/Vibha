@@ -1,0 +1,41 @@
+Hello {{ model.first_name }},
+
+Thank you for signing up for Change For Children. By contributing through
+this program, you have paved the way for a brigher future for several
+disadvantaged children.
+
+A Change For Children canister to collect change will either be mailed to
+you or delivered to you personally by a Vibha volunteer within the next
+few weeks.
+
+If you need to update any information (change of address/phone number) or
+schedule a pick up of the change when the box fills up, please e-mail us at
+cfc@vibha.org
+
+Please feel free to send us any suggestions/questions/comments about this
+program or Vibha in general. We look forward to your support.
+
+Best,
+Bahi
+Change For Children coordinator
+cfc@vibha.org
+Change For Children
+http://www.vibha.org/cfc
+
+=======================================================
+
+Date:                  {{ model.signup_date }}
+First name:            {{ model.first_name }}
+Last name:             {{ model.last_name }}{% if model.pg_first_name %}
+First name (guardian): {{ model.pg_first_name }}
+Last name  (guardian): {{ model.pg_last_name }}{% endif %}
+E-mail:                {{ model.email }}
+phone:                 {{ model.phone }}
+Address:               {{ model.address_1 }}{% if model.address_2 %}
+                       {{ model.address_2 }}{% endif %}
+City:                  {{ model.city }}
+State:                 {{ model.state }}
+Zipcode:               {{ model.zipcode }}
+Action center:         {{ model.actioncenter }}
+Need receipt:          {{ model.receipt }}
+Comments:              {{ model.comments }}

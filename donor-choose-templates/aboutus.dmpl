@@ -1,0 +1,34 @@
+{% extends "base2.dmpl" %}
+
+{% block content %}
+<STYLE type="text/css">
+a {
+	color:#0508c0;
+	text-decoration:none;
+	
+}
+p {
+    font-size:13px;
+    }
+</STYLE>
+
+<h2>About Us</h2>
+<br />
+<br />
+<br />
+<p><strong>&nbsp;</strong><em><strong>"Children are the living messages we send to a time we will not see"</strong></em></p>
+<p>India, by one count has</p>
+<ul>
+    <li><strong>18 million</strong>* street children </li>
+        <li>over <strong>22 million</strong>* child laborers </li>
+            <li>Nearly <strong>20%</strong>** of the children 6-14 years old have no access to primary education. </li>
+                <li>Less than <strong>45%</strong>** receive the immunization required to protect them from deadly illnesses. </li>
+                    <li><strong>Half the children</strong> do not get enough food everyday and are chronically or acutely undernourished. </li>
+                    </ul>
+                    <p><strong>Ask yourself - is this really how your message should read?</strong></p>
+                    <p>Vibha is a movement that empowers you to make a difference. We aim to ensure that every underprivileged child attains his or her right to education, health and opportunity. If you want to make a difference in the life of a child that can only dream but has never experienced opportunity - <a title="Contact Us" target="_blank" href="index.php?option=com_content&amp;view=article&amp;id=68&amp;Itemid=81">contact us</a> and we can show you how.</p>
+                    <p><strong>Our&nbsp;Vision</strong><br /><br />Our vision is to ensure that every underprivileged child attains his or her right to education, health and opportunity.<br /><strong></strong></p>
+                    <p><strong>Our&nbsp;Mission </strong><br /><br />Our mission is to educate, empower and enable every individual who wishes to make a positive difference in the life of the underprivileged child.<br /><br />Founded in 1991, today Vibha has a volunteer network of over 800 volunteers spread across 15 Action Centers (Atlanta, Austin, Bay Area, Boston, Chicago, Dallas, Houston, Jacksonville, Los Angeles, Milwaukee, Twin Cities - Minnesota, New York, Philadelphia, Sacramento, Washington DC) and several other cities across the US and India. Till date, we have supported over190 projects in India and the US. Read more about <a title="Current Projects" target="_blank" href="http://projects.vibha.org/projects/">our current projects here</a>.</p>
+                    <p class="smaller"><sub>*Source: </sub><a title="http://www.indianngos.com/" target="_blank" href="http://www.indianngos.com/" class="external text"><span style="text-decoration: underline;"><span style="color: #0066cc;"><sub>www.indianngos.com</sub></span></span></a><sub>, **Source: UNICEF India</sub></p>​
+
+{% endblock %}

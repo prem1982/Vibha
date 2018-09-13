@@ -1,0 +1,22 @@
+{% extends "base2.dmpl" %}
+
+{% block content %}
+<h2>Get Involved</h2>
+<br />
+<br />
+<br />
+
+<STYLE type="text/css">
+a {
+	color:#0508c0;
+	text-decoration:none;
+	
+}
+p {
+    font-size:13px;
+    }
+</STYLE>
+
+<p><strong></strong>You can join hands with Vibha and help in a number of unique ways:<br /><br /> <a href="http://www.vibha.org/htg/">Help Them Grow Automatic Donation Program</a> gives you the convenience to contribute a fixed amount of your choice every month directly through your bank account or credit card. You can <a href="http://www.vibha.org/htg/">signup online</a> or fill out the <a href="http://wiki.vibha.org/images/HTG_Signup.pdf">HTG form</a> and mail it to the address provided on the form.<br /><br /> <a href="http://www.vibha.org/vbp/">Vibha Beneficiary Program</a> - Businesses, groups, associations or individuals can adopt partial/full budget of a project. All donations go directly to the project of your choice and the benefactor will be put directly in touch with the project. For more details and a list of available projects, click here<br /><br /><a href="http://www.vibha.org/donate/"> Make an online donation</a> or send a check to Vibha. All donations are tax deductible in USA. To mail a check, please use the following address.<br /><br /> Vibha<br /> 1030 E. El Camino Real #424<br /> Sunnyvale<br /> CA 94087<br /><br /> Involve your Corporation - Many corporations have matching donation programs, volunteer funding programs, employee grants, and special campaigns through United Way and so on. You can register Vibha with your employer and publicize Vibha during your corporate campaign. You can also help get sponsorships for Vibha events such as Vibha Walk/Run. Please <a href="mailto:programs@vibha.org">email our corporate programs team</a> for more information.<br /><br /><strong> NOTE: </strong>Vibha is registered as Help Them Grow Inc. Please look for Vibha or Help Them Grow Inc. if you are searching a database while contributing through company or registering Vibha with your company.</p>
+<p>Celebrating a birthday, graduation, wedding? Share your success with the children at Vibha supported projects by setting up a <a href="http://sites.vibha.org/index.php?option=com_content&amp;view=article&amp;id=56&amp;Itemid=62">Vibha Dream Registry</a>. For more details, <a href="http://sites.vibha.org/index.php?option=com_content&amp;view=article&amp;id=56&amp;Itemid=62">click here</a><br /><br /> Got an old car. Donate it for a good cause and get a tax deduction for fair market value. We will take care of towing and all the other necessary work. Fill out the <a href="http://wiki.vibha.org/images/Vehicle_Donation_Form_2010_06_25.doc">Vehicle Donation Form</a> and either fax it to us or mail it to us<br /><br /> <a href="http://www.vibha.org/events/">Attend Vibha Events</a> - You can show your support by attending or volunteering for fundraising events organized by our volunteers. Please check our events calendar for an event in your city.<br /><br />Get involved, together we can make a change!</p>​
+{% endblock %}

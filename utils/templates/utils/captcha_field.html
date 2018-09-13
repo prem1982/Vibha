@@ -1,0 +1,8 @@
+{% load vibhaform %}
+{% if form.is_bot %}
+    <fieldset>
+        <legend>Word Verification</legend>
+            <img src="/utils/captcha/" alt="Human test"/><br />
+            {{ form.captcha|formfield }}
+    </fieldset>
+{% endif %}

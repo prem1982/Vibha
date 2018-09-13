@@ -1,0 +1,26 @@
+{% comment %}
+$Id: disbursal-reminder.txt 346 2007-05-06 18:33:54Z suriya $
+{% endcomment %}
+
+This is an automated mail regarding a project.
+
+ISSUE: Annual Report for this project is pending
+
+The details are given below.
+
+Project name: {{ project }}
+Project Id:   {{ project.id3 }}
+
+To upload the report, go to: http://db.vibha.org/admin/projects/report/add/
+
+This action item url is http://db.vibha.org{{ action_item.get_admin_url }}. 
+Please resolve this action item as soon as possible and mark it as
+completed in the database to avoid another nag-o-gram!
+
+If you believe this email or action item is in error, or have issues
+related to the project database, please contact the IT Help Desk at
+ithelpdesk@vibha.org
+
+Regards,
+Vibha Projects Team
+

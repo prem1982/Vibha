@@ -1,0 +1,58 @@
+#maincontent h1{
+padding:6px 10px;
+margin:0px;
+font-size:16px;
+font-weight:normal;
+color:#FFF;
+background:#553870;
+}
+#maincontent h2{
+padding:15px 10px 10px 10px;
+margin:0px;
+font-size:15px;
+font-weight:normal;
+color:#553870;
+}
+#maincontent p{
+padding:0 10px 10px 10px;
+margin:0px;
+font-size:13px;
+font-weight:normal;
+color:#553870;
+}
+#maincontent .user_menu{
+padding:0px;
+margin:15px 0 0 0;
+width:868px;
+}
+#maincontent .user_menu ul{
+padding:0px;
+margin:0px;
+width:864px;
+background:url(../images/user-menu.jpg) repeat-x left top;
+font-size:12px;
+font-weight:normal;
+border:1px #dcdcdc solid;
+list-style:none;
+}
+#maincontent .user_menu li{
+padding:0px;
+margin:0px;
+width:144px;
+float:left;
+}
+#maincontent .user_menu li a{
+display:block;
+padding:5px 0 0 0;
+margin:0px;
+color:#FFFFFF;
+width:144px;
+text-align:center;
+height:21px;
+text-decoration:none;
+border-right:1px #dcdcdc solid;
+}
+#maincontent .user_menu li a:hover{
+color:#999999;
+text-decoration:none;
+}

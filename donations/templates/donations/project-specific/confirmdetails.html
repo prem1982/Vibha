@@ -1,0 +1,8 @@
+{% extends "donations/singledonation-confirmdetails.html" %}
+
+{% block projectSpecificDonation %}
+<p style="font-size: 10pt;">
+This donation is made to the Vibha Project <a
+href="http://projects.vibha.org{{ project.get_absolute_url }}">{{ project }}</a>.
+</p>
+{% endblock %}

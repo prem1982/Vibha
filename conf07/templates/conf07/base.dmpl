@@ -1,0 +1,27 @@
+{% extends "base.dmpl" %}
+
+{% block getInvolvedLeftBox %}
+    <ul>
+      <li class="h"><a href="http://wiki.vibha.org/Get_Involved_Overview">Overview</a></li>
+      <li><a href="http://vibha.org/volunteer">Volunteer with Vibha</a></li>
+      <li><a href="http://wiki.vibha.org/Vibhascope_Home">Volunteer Newsletter</a></li>
+      <li><a href="http://wiki.vibha.org/Volunteer_Opportunities">Volunteer Opportunities</a></li>
+      <li><a href="http://wiki.vibha.org/Get_Involved_Action_Centers">Vibha Action Centers</a></li>
+      <li><a href="http://wiki.vibha.org/Event_Overview">Events</a></li>
+    </ul>{% endblock %}
+
+{% block rightBox %}
+<p><a href="http://wiki.vibha.org/Vibha_Volunteer_Conference" title="Vibha Volunteer Conference Conference Home"> <b>Conference Home</b></a>
+</p><p><a href="http://wiki.vibha.org/Vibha_Volunteer_Conference_Dates_Venue" title="Vibha Volunteer Conference Dates Venue"> <b>Date &amp; Venue</b></a>
+</p><p><a href="http://wiki.vibha.org/Vibha_Volunteer_Conference_Theme_Agenda" title="Vibha Volunteer Conference Theme Agenda"> <b>Theme &amp; Agenda</b></a>
+</p><p><a href="http://wiki.vibha.org/Vibha_Volunteer_Conference_Airline_Information" title="Vibha Volunteer Conference Airline Information"> <b>Airline Information</b></a>
+</p><p><a href="http://wiki.vibha.org/Vibha_Volunteer_Conference_Visitor_Information" title="Vibha Volunteer Conference Visitor Information"> <b>Visitor Information</b></a>
+</p><p><b>Registration</b>
+</p><p><a href="http://wiki.vibha.org/Vibha_Volunteer_Conference_Why_Participate" title="Vibha Volunteer Conference Why Participate"> <b>Why Particpate</b></a>
+</p><p><a href="http://wiki.vibha.org/Vibha_Volunteer_Conference_Volunteer" title="Vibha Volunteer Conference Volunteer"> <b>Volunteer</b></a>
+</p><p><br />
+</p>
+<hr />
+<p><a href="mailto:vconference@vibha.org" class="external text" target="_blank" title="mailto:vconference@vibha.org"><b>Contact Us</b></a>
+</p>
+{% endblock %}

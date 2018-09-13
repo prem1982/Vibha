@@ -1,0 +1,6 @@
+{% extends "donations/singledonation-email.txt" %}
+
+{% block projectSpecificDonation %}
+This donation was made to the Vibha Project: {{ project }}.
+The project's home page is: http://projects.vibha.org{{ project.get_absolute_url }}.
+{% endblock %}

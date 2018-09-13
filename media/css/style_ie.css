@@ -1,0 +1,13 @@
+/* IE Specific styles */
+
+.menu ul li:hover ul
+{
+	z-index:1000;
+	cursor:pointer;
+	display:block;
+	width:178px;
+	margin-top:33px;
+    margin-left:-80px;
+	border-top:2px solid #123A48;
+	border-bottom:2px solid #123A48;
+}

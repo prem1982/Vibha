@@ -1,0 +1,33 @@
+{% extends "base2.dmpl" %}
+
+{% block content %}
+
+<div class="create-compaign">
+<h1>You are now going to campaign for {{ project.name }}.</h1>       
+<p>You will first need to pay yourself. You can then create a campaign page
+and let others know about the campaign.</p>
+
+    <p style="font-size:14px; padding:0 0 15px 0;">
+    {{ project.summary }}</p>
+    
+<div class="main_fund">
+    <div class="action_items">    
+        <span class="sp_left">
+            Funding Required:</span> <span class="amt"> {{ funding_detail.budget }}
+        </span>
+    </div>
+    <form method="post" action="../create-campaign-donate/">
+        <div class="action_items">
+                {{ raise_funds_form.as_p }}
+            <br/> 
+            <input type="image" alt="Proceed to Checkout and Campaign" src="/vibha-media/portal/images/proceed-to-checkout.gif" border="0">
+        </div>
+    </form>
+    <div class="clr"></div>
+    <p><br /></p>
+    <p><br /></p>
+    <p><br /></p>
+    <p><br /></p>
+</div>
+</div>
+{% endblock %}

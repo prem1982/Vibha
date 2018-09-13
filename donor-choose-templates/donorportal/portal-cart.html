@@ -1,0 +1,29 @@
+{% extends "donorportal/portal-menu.html" %}
+
+{% block comment %}
+{% endblock %}
+
+{% block optionaldetails %}
+{% if cartdetails %}
+<form method="post" action="{% url portal_cart_submit %}">
+{% endif %}
+<br/>
+{% if cartdetails %}
+<p> List of projects and campaigns you have added to the cart.
+</p>
+{% endif %}
+{% for item in cartdetails %}
+    {% include "cart_item_part.html" %}
+{% empty %}
+<p> Your cart is empty. </p>
+<p> Choose from one of these <a href="/projectfilter/list/">projects</a> and add a donation to your cart.</p>
+{% endfor %}
+
+{% if cartdetails %}
+<p align="right" class="add_cart"><span class="headingmain">Total: $ {{total_amount|floatformat}}</span></p>
+<input type="hidden" name="total_amount" value="{{total_amount|floatformat}}">
+<input type="submit" name="check-out" value="Check Out" />
+<input type="submit" name="update-cart" value="Update Cart" />
+</form>
+{% endif %}
+{% endblock %}

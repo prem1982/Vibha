@@ -1,0 +1,23 @@
+{% extends "registration/login.html" %}
+
+{% block content %}
+<!-- Content Start -->
+
+{% if form.errors %}
+	<p class="errorlist"> Sorry! We are unable to register you. Please correct the errors below (marked in red) and try again. </p>
+{% endif %}
+
+<div class="register">
+<h4 class="head">Register:</h4>
+
+<form class="design" action="." method="post">
+<table>
+<tr><td colspan="100%" align="center"><span style="color: red">All fields are required.</span></td></tr>
+	{{ form.as_table }}
+<tr><td colspan="100%" align="center"><a class="userhead" href="http://wiki.vibha.org/Legal_Notices">Legal Notices</a></td></tr>
+<tr><td colspan="100%" align="center"><input type="submit" value="Register"/></tr>
+</table>
+</form>
+</div>
+<!-- Content End -->
+{% endblock %}

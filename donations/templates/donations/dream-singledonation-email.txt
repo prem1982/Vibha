@@ -1,0 +1,5 @@
+{% extends "donations/singledonation-email.txt" %}
+
+{% block dreamRegistryDonation %}
+This donation was made to for {{ dream_event }}.
+{% endblock %}

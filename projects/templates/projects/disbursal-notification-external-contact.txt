@@ -1,0 +1,39 @@
+{% comment %}
+$Id: disbursal-notification.txt 346 2007-05-06 18:33:54Z suriya $
+{% endcomment %}
+
+{{organization.contact}}
+{{organization.name}}
+
+Dear Sir/ Madam,
+
+We are sending this letter to inform you that we have wired ${{disbursal.amount}}
+on {{disbursal.disbursed_date}} from our account in Citi Bank to your account in
+{{organization.bank_name}}.
+
+Please note that this project has been approved in US dollars.  Hence, each
+installment amount in INR might be different due to the fluctuating exchange
+rates.
+
+We require that a receipt be sent for each installment once it is received.
+This receipt can be emailed to office@vibha.org or faxed to 775-593-1061. If
+the organization does not have an email address, please mail the receipt to
+the following address:
+
+Help Them Grow, Inc dba Vibha
+1030 E EL Camino Real #424
+Sunnyvale, CA 94087
+
+It is also mandatory to submit a quarterly project report before the next
+installment is released. If the project does not meet the requirements
+mentioned in the project proposal, Vibha has the right to discontinue the
+project and cancel future disbursals.
+
+Sincerely,
+
+Vivek Sharma
+Manager, Administration
+Vibha - Help Them Grow Inc.
+office@vibha.org
+408-997-9992
+

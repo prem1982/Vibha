@@ -1,0 +1,172 @@
+{% extends "projects/base.dmpl" %}
+
+{% block title %} Vibha : Project : {{ project.name }} {% endblock %}
+
+{% comment %}
+Why do we need multiple canBeMapped checks here?
+The if and block cannot be reordered. Take a look at
+http://simon.bofh.ms/logger/django/2007/01/27/22/32/
+{% endcomment %}
+{% block additionalHeaders %}
+  {% if canBeMapped %}
+    {% include "projects/maps/maps.css" %}
+    {% include "projects/maps/smallmap.js" %}
+  {% endif %}
+{% endblock %}
+
+{% block bodyTagArguments %}{% if canBeMapped %}onload="load()" onunload="GUnload()"{% endif %}{% endblock %}
+
+{% block contentBox %}
+<div id="project_list">
+<table>
+  <tr class="heading" style="text-align: center;">
+    <td colspan="2"> {{ project.name }} {% if authenticated %}(<a href="{{ project.get_factsheet_url }}">factsheet</a>){% endif %}</td>
+  </tr>
+{% ifnotequal project.name 'Sikshana' %}
+  <tr class="{% cycle 'tbl_row2' 'tbl_row1' as rowcolors %}">
+    <td max-width="150px"> <b>Project Location</b> </td>
+    <td > {{ project.location }}{% if authenticated %}(<a href="{{ project.get_admin_url }}" target="_blank">change</a>){% endif %}</td>
+  </tr>
+  {% if project.project_strategy %} 
+  <tr class="{% cycle rowcolors %}">
+    <td> <b>Project Strategy</b> </td>
+    <td> {{ project.project_strategy }}{% if authenticated %}(<a href="{{ project.get_admin_url }}" target="_blank">change</a>){% endif %}</td>
+  </tr>
+  {% endif %}
+  {% if project.organization %} 
+  <tr class="{% cycle rowcolors %}">
+    <td> <b>Organization</b> </td>
+    <td> {{ project.organization }} {% if authenticated %}(<a href="{{ project.get_admin_url }}" target="_blank">change</a>){% endif %}</td>
+  </tr>
+  {% endif %}
+  {% if project.project_coordinator %} 
+  <tr class="{% cycle rowcolors %}">
+    <td> <b>Project Coordinator</b> </td>
+    <td> {{ project.project_coordinator }}{% if authenticated %}(<a href="{{ project.get_admin_url }}" target="_blank">change</a>){% endif %}</td>
+  </tr>
+  {% endif %}
+  {% if project.organization.url %} 
+  <tr class="{% cycle rowcolors %}">
+    <td> <b>Organization Website</b> </td>
+    <td> <a href="{{ project.organization.url }}" target="_blank">{{ project.organization.url }}</a> {% if authenticated %}(<a href="{{ project.get_admin_url }}" target="_blank">change</a>){% endif %}</td>
+  </tr>
+  {% endif %}
+  <tr class="{% cycle rowcolors %}">
+    <td colspan="2">&nbsp;</td>
+  </tr>
+
+  {% if project.status_string %} 
+  <tr class="{% cycle rowcolors %}">
+    <td> <b>Project Status</b> </td>
+    <td> {{ project.status_string }} {% if authenticated %}(<a href="/admin/projects/projectstatusupdate/add/" target="_blank">change</a>){% endif %}</td>
+  </tr>
+  {% endif %}
+  {% if project.funded_component %} 
+  <tr class="{% cycle rowcolors %}">
+    <td> <b>Vibha Funded Component</b> </td>
+    <td> {{ project.funded_component }} {% if authenticated %}(<a href="{{ project.get_admin_url }}" target="_blank">change</a>){% endif %}</td>
+  </tr>
+  {% endif %}
+  {% if project.vibha_funding %} 
+  <tr class="{% cycle rowcolors %}">
+    <td> <b>Vibha Funding</b> </td>
+    <td> {{ project.vibha_funding }} {% if authenticated %}(<a href="{{ project.get_admin_url }}" target="_blank">change</a>){% endif %}</td>
+  </tr>
+  {% endif %}
+  {% if project.beneficiary_age %} 
+  <tr class="{% cycle rowcolors %}">
+    <td> <b>Beneficiary Age</b> </td>
+    <td> {{ project.beneficiary_age }} {% if authenticated %}(<a href="{{ project.get_admin_url }}" target="_blank">change</a>){% endif %}</td>
+  </tr>
+  {% endif %}
+  {% if project.beneficiary_background %} 
+  <tr class="{% cycle rowcolors %}">
+    <td> <b>Beneficiary Socio-economic Background</b> </td>
+    <td> {{ project.beneficiary_background }} {% if authenticated %}(<a href="{{ project.get_admin_url }}" target="_blank">change</a>){% endif %}</td>
+  </tr>
+  {% endif %}
+  {% if project.beneficiaries_count %} 
+  <tr class="{% cycle rowcolors %}">
+    <td> <b>Beneficiaries</b> </td>
+    <td> {{ project.beneficiaries_count }} children {% if authenticated %}(<a href="{{ project.get_admin_url }}" target="_blank">change</a>){% endif %}</td>
+  </tr>
+  {% endif %}
+  {% if project.cost_per_beneficiary %} 
+  <tr class="{% cycle rowcolors %}">
+    <td> <b>Cost per Beneficiary</b> </td>
+    <td> ${{ project.cost_per_beneficiary|floatformat:2 }} {% if authenticated %}(<a href="{{ project.get_admin_url }}" target="_blank">change</a>){% endif %}</td>
+  </tr>
+  {% endif %}
+
+  <tr class="{% cycle rowcolors %}">
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr class="{% cycle rowcolors %}">
+    <td> <b>Address</b> </td>
+    <td> {% if project.organization.address_1 %}{{ project.organization.address_1 }}<br/>{% endif %}{% if project.organization.address_2 %}{{ project.organization.address_2 }}<br/>{% endif %}{% if project.organization.address_3 %}{{ project.organization.address_3 }}<br/>{% endif %}{% if project.organization.city %}{{ project.organization.city}}, {{project.organization.zipcode}}<br/>{% endif %}{% if project.organization.state %}{{ project.organization.state }}<br/>{% endif %}{% if authenticated %}(<a href="{{ project.get_admin_url }}" target="_blank">change</a>){% endif %}</td>
+  </tr>
+  <tr class="{% cycle rowcolors %}">
+    <td> <b>Project Liaison</b> </td>
+    <td> <a href="contactlead/">Contact Vibha Project Lead</a> </td>
+  </tr>
+  <tr class="tbl_row1" style="text-align:justify">
+    <td colspan="2">
+      {% if authenticated %}(<a href="{{ project.get_admin_url }}" target="_blank">change</a>) <br />{% endif %}
+{% endifnotequal %}
+      {{ project.desc_html|safe }}
+{% ifnotequal project.name 'Sikshana' %}
+    </td>
+  </tr>
+{% endifnotequal %}
+</table>
+</div>
+{% endblock %}
+
+{% block rightBox %}
+  <!-- Project Funding details -->
+  {% if fundingS %}
+    <div class="sidebar_head">Project Funding</div>
+    <div class="sidebar_content">
+    <ul>
+      {% for funding in fundingS %}
+        <li> {{ funding.begin_date|date:"M Y" }}: ${{ funding.budget|floatformat:2 }}</li> 
+      {% endfor %}
+    </ul>
+    </div>
+    <br />
+  {% endif %}
+
+  <!-- pictureS -->
+  {% if authenticated %}<p> (<a href="/admin/projects/picture/add/" target="_blank">Add new picture</a>) </p>{% endif %}
+  {% if picture %}
+    <div class="sidebar_head">Picture Gallery</div>
+    <div class="sidebar_content">
+    <a href="{{ project.get_gallery_url }}" target="_blank"><img src="{{ picture.thumbnail.url }}" style="border:0px;"></a><br />
+    </div>
+    <br />
+  {% endif %}
+
+  <!-- map -->
+  {% if canBeMapped %}
+    <div class="sidebar_head">Project Location</div>
+    <div class="sidebar_content" style="padding-left:30px;">
+    <div id="map" style="width: 280px; height: 200px"></div>
+    <br />
+    </div>
+  {% endif %}
+
+  <!-- reportS -->
+  {% if authenticated %}<p> (<a href="/admin/projects/report/add/" target="_blank">Add new report</a>) </p>{% endif %}
+  {% if reportS %}
+    <div class="sidebar_head">Reports</div>
+    <div class="sidebar_content">
+    <ul>
+      {% for report in reportS %}
+      <li> {{ report.report_date|date:"M Y" }}:
+        <a href="{{ report.get_report_file_url_custom }}">{{ report.desc }}</a></li> 
+      {% endfor %}
+    </ul>
+    </div>
+  {% endif %}
+
+{% endblock %}

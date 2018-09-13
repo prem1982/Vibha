@@ -1,0 +1,48 @@
+Hello {{ model.first_name }},
+
+Thank you for signing up for the Vibha Volunteer Conference 2010 in
+the Twin Cities, MN. Included at the end of this email are the details of your
+registration. If you have any questions, please contact the Vibha
+Volunteer Conference Team at vconference@vibha.org.
+
+{% if model.webcast_viewing %}
+______________________________________________________________
+The webcast details are as follows:
+
+URL: https://umconnect.umn.edu/vconf/
+
+Please fill in your name and enter as a guest. You will need to wait 
+for the moderator to allow you to enter the room. If you are having any
+trouble connecting, contact Arvind at 612-803-3602 or email amenon81@gmail.com
+______________________________________________________________
+
+{% endif %}
+
+Looking forward to your participation at the conference!
+
+Best,
+Vibha Volunteer Conference Team
+vconference@vibha.org
+www.vibha.org
+
+===========================================================
+
+Date: {{ model.signup_date|date:"D M j H:i:s T Y" }}
+First name: {{ model.first_name }}
+Last name: {{ model.last_name }}
+E-mail: {{ model.email }}
+Location: {{ model.ac }}
+Viewing Webcast?: {{model.webcast_viewing|yesno }}
+{% if not model.webcast_viewing %}
+Accomodation: {{ model.accomodation|yesno:"Requested,Not requested" }}
+Airport pickup: {{ model.pickup|yesno:"Requested,Not requested" }}
+Transportation to venue: {{ model.transportation|yesno:"Requested,Not requested" }}
+Interested in volunteering: {{ model.volunteer|yesno:"I can,I cannot" }}
+
+Guests:
+{{ model.guests|wordwrap:50 }}
+
+Other requests:
+{{ model.requests|wordwrap:50 }}
+{% endif %}
+

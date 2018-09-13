@@ -1,0 +1,119 @@
+{% extends "base2.dmpl"%}
+
+{% load vibhaform %}
+{% block content %}
+
+{% block additionalHeaders %}
+<style type="text/css">@import "/vibha-media/css/vibhaform.css";</style>
+<style type="text/css">@import "/vibha-media/css/autocomplete.css";</style>
+<script src="/vibha-media/js/scriptaculous/prototype.js"     type="text/javascript"></script>
+<script src="/vibha-media/js/scriptaculous/scriptaculous.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript">
+  function popUp(URL) {
+    day = new Date();
+    id = day.getTime();
+    eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=400,height=400');");
+  }
+
+</script>
+{% endblock %}
+
+
+    <form class="vibhaform" method="post" action="{%url portal_cart_checkout %}" >
+        {{ form.dream_event_id }}
+        {{ form.project_id }}
+        <fieldset>
+            <legend>Personal information</legend>
+                {{ form.email|formfield }}
+                {{ form.first_name|formfield }}
+                {{ form.last_name|formfield }}
+                {{ form.address_1|formfield }}
+                {{ form.address_2|formfield }}
+                {{ form.city|formfield }}
+                {{ form.state|formfield }}
+                {{ form.zipcode|formfield }}
+                {{ form.country|formfield }}
+                {{ form.action_center|formfield }}
+                {{ form.phone|formfield }}
+        </fieldset>
+        <fieldset id="singledonation-creditcard-info">
+            <legend>Credit card information</legend>
+                {{ form.cc_name|formfield }}
+                {{ form.credit_card|formfield }}
+                {{ form.expr_date|formfield }}
+                {{ form.cvv|formfield }}
+                {{ form.ip_address }}
+
+                <div class="hasnoformerror"><label style="font-size:1.1em; margin-top:9px;">Amount:  </label>
+                {{ form.amount }}
+                </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Matching donations</legend>
+
+	    <p style="font-size: 10pt;"> 
+	    <b> Multiply your donation! Get it matched from your company </b> <br /> <br />
+
+	    <b> <a href="http://www.vibha.org/matching" target=_blank>
+            Click here for a list of companies</a> that have matched
+            donations to Vibha in the past.</b> Please enter the name
+            even if your company is not in the list. They very well
+            might match donations.
+	    </p>
+
+            {{ form.company_name|formfield }}
+            <div class="page_name_auto_complete" id="id_company_name_auto_complete"></div>
+            <script type="text/javascript">
+                new Ajax.Autocompleter("id_company_name",
+                                       "id_company_name_auto_complete",
+                                       "/ajax/companies/",
+                                       { minChars: 2,
+                                         paramName: 'search',
+                                         afterUpdateElement: function(text, li) { $('id_company_id').value = li.id; },
+                                       });
+            </script>
+            {{ form.company_id }}
+        </fieldset>
+
+        <fieldset>
+	    <legend>Other Preferences </legend>
+         <table>
+               <tr style="font-size: 8pt;">
+               <td style="border:0px;"> {{ form.paper_receipt }} </td>
+		       <td style="border:0px;"> <b> <span style="color: green;">Go
+               Green!</span> </b> E-mail me my receipt. (Check for a paper receipt) </td>
+		       </tr>
+               <tr style="font-size: 8pt;">
+               <td style="border:0px;"> {{ form.anonymous }} </td>
+		       <td style="border:0px;"> <b> Remain Anonymous.</span> </b> Do not show my name against this donation on this site </td>
+		       </tr>
+		</table>
+	</fieldset>
+
+        {% block referringVolunteer %}
+        {% endblock %}
+
+	<fieldset>
+            <legend>Comments</legend>
+            If you are making a donation in honor of someone or you
+            heard about Vibha from someone, please enter their name
+	    and/or other comments below.
+	        {{ form.referrer|formfield }}
+                {{ form.comments|formfield }}
+        </fieldset>
+
+<p style="font-size: 9pt;"> By pressing Submit, I certify that I am
+authorized to use the credit card in consideration. I also authorize
+Vibha to deduct my contribution once from the above account.
+</p>
+
+<script type="text/javascript" src="https://seal.thawte.com/getthawteseal?host_name=secure.vibha.org&amp;size=M&amp;lang=en"></script>
+
+<p style="text-align: center;">
+        <input type="submit" name="cart_checkout" value="Confirm"</input>
+</p>
+
+    </form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+
+This is an automated mail. A project's status was changed. The details are
+given below. Please contact projects@vibha.org for more information.
+
+Project name:      {{ project }}
+Project Id:        {{ project.id3 }}
+Organization:      {{ organization }}
+Factsheet:         http://db.vibha.org{{ project.get_factsheet_url }}
+Status Update URL: http://db.vibha.org/admin/projects/projectstatusupdate/{{ status.id }}/{% if lead %}
+Project lead:      {{ lead }} <{{ lead.email }}>{% else %}
+Project lead:      No project lead yet.{% endif %}
+Status name:       {{ status.get_status_display }}
+Date:              {{ status.date }}
+Comments:
+{{ status.comments }}

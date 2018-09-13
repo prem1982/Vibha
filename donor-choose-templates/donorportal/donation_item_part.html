@@ -1,0 +1,32 @@
+  <div class="project_detail">
+    <div class="left_img"> 
+      <img src="{{item.project.get_random_picture.thumbnail.url}}" alt="{{item.project}}" width="112" height="112" />
+    </div>
+    <div class="right_con"><strong><a href="{% url project_page item.project.slug %}" >{{ item.project.name }}</a></strong>
+      <table width="95%" border="0" align="left" cellpadding="2" cellspacing="0">
+        <tr>
+          <td width="72%"><p>{{ item.project.summary }}<br /></p>
+            <a href="{% url project_page item.project.slug %}">View More</a>
+            {% if item.campaign %}
+              <p>For the
+              <a href="{{ item.campaign.get_absolute_url }}">Campaign</a> by <a href="{{item.campaign.user.get_profile.get_absolute_url}}">{% firstof item.campaign.user.get_full_name item.campaign.user.username %}</a>
+            {% endif %}
+          </td>
+          <td width="28%" align="right"><input name="amount" type="textbox" size=5 value="{{ item.amount }}" disabled>
+          </td>
+        </tr>
+        <tr>
+          <td width="28%" align="left" class="normal">
+            <form action="{% url portal_donations_receipt %}" method="post">            
+              <input type="hidden" name="did" value="{{item.id}}">
+              <input type="submit" value="Request a duplicate receipt">
+            </form>
+          </td>
+          <td width="28%" align="right" class="normal"><h4>{{ item.date|date }}<h4>
+          </td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+    </div>
+    <div class="clr"></div>
+  </div>

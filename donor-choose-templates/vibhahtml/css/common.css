@@ -1,0 +1,142 @@
+body{
+padding:0px;
+margin:0px;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+.clr{
+clear:both;
+}
+
+
+/***********Header Start Here ***********/
+
+#header{
+padding:0px;
+margin:0 auto;
+background:url(../images/vibha.jpg) no-repeat left top;
+width:893px;
+height:125px;
+}
+#header h1{
+padding:66px 15px 10px 0;
+margin:0px;
+font-size:12px;
+color:#FFFFFF;
+text-align:right;
+}
+#header .inpbox{
+padding:2px;
+margin:0px;
+border:1px #b6b6b6 solid;
+color:#333333;
+font-size:12px;
+width:133px;
+height:18px;
+}
+#header .search{
+padding:36px 30px 0 660px;
+margin:0px;
+height:54px;
+}
+#header .inp{
+padding:0px;
+margin:0px;
+float:left;
+width:143px;
+}
+#header .but{
+padding:0px;
+margin:0px;
+float:left;
+width:56px;
+}
+#header .go{
+padding:0px;
+margin:0px;
+float:left;
+width:40px;
+}
+/**************Menu Start ************/
+#mainmenu{
+padding:6px 0 0 0;
+margin:0px;
+height:29px;
+background:#cccccc;
+}
+#mainmenu .menu{
+padding:5px 0 0 15px;
+margin:0px;
+float:left;
+width:400px;
+font-size:12px;
+font-weight:bold;
+}
+#mainmenu .menu a{
+padding:0 3px;
+margin:0px;
+color:#404040;
+text-decoration:none;
+}
+#mainmenu .menu a:hover{
+color:#000;
+text-decoration:none;
+}
+#mainmenu .signup{
+padding:0 15px 0 0;
+margin:0px;
+float:right;
+width:430px;
+}
+#mainmenu .signup .sign{
+padding:0px;
+margin:0px;
+float:right;
+width:100px;
+font-size:10px;
+}
+#mainmenu .signup .sign p{
+padding: 0 0 2px 0;
+margin:0px;
+}
+#mainmenu .signup .sign a{
+padding:0px;
+margin:0px;
+color:#333333;
+text-decoration:none;
+}
+/*************Main container Start *************/
+#maincontent{
+padding:15px;
+margin:0 auto;
+background:#efefef;
+width:863px;
+}
+/*************Footer Start *********/
+#vibhaFooter {
+background-color: black;
+color: white;
+width:893px;
+margin-left: auto;
+margin-right: auto;
+font-size: 10px;
+padding-top: 0.75ex;
+padding-bottom: 0.75ex;
+text-align: left;
+}
+#vibhaFooterRight {
+float: right;
+padding-right:8px;
+}
+#vibhaFooterLeft {
+float: left;
+padding-left:8px;
+}
+#vibhaFooter a {
+color: white;
+}
+#vibhaFooterCopyright {
+text-align: center;
+background-color: white;
+color: black;
+font-size: 10px;
+}

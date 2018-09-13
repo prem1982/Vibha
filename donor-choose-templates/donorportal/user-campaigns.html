@@ -1,0 +1,14 @@
+{% extends "donorportal/portal-menu.html" %}
+
+{% block optionaldetails %}
+{% if campaigns %}
+<br/><p>List of campaigns you have created (excluding anonymous ones, if any)</p><br/>
+{% endif %}
+{% for campaign in campaigns %}
+        {% include "donorportal/portal_campaign_part.html"%}
+{% empty %}
+<br /><p> You have not created any campaigns! </p>
+<p> Choose from one of these <a href="/projectfilter/list/">projects</a> and start a campaign.</p>
+{% endfor %}
+
+{% endblock %}

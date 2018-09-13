@@ -1,0 +1,47 @@
+{% extends "base.dmpl" %}
+
+{% load vibhaform %}
+{% load captcha %}
+
+{% block title %} Vibha Austin Trivia Guru 2009 : Registration {% endblock %}
+
+{% block headerimage %}<div id="topImage"><img  class="nolinkedimage" src="/vibha-media/img/HeaderGreen.png" width="1000" height="90" ></div>{% endblock %}
+
+{% block MediaWikiCommonCss %}{% endblock %}
+
+{% block additionalHeaders %}
+<style type="text/css">@import "/vibha-media/css/vibhaform.css";</style>
+{% endblock %}
+
+{% block contentBox %}
+
+    {% if form.errors %}
+        <p style="font-size: 11pt">Please correct the following errors below (fields shown in red) </p>
+        <!-- {{ form.errors }} -->
+    {% endif %}
+
+    <form class="vibhaform" method="post" action="" >
+        <fieldset>
+            <legend>Team information</legend>
+                {{ form.captain_name|formfield }}
+                {{ form.email|formfield }}
+                {{ form.phone|formfield }}
+                {{ form.member2_name|formfield }}
+                {{ form.member3_name|formfield }}
+                {{ form.team_name|formfield }}
+                {{ form.num_students|formfield }}
+                {{ form.num_non_students|formfield }}
+        </fieldset>
+        <fieldset>
+            <legend>Comments</legend>
+                {{ form.comments|formfield }}
+        </fieldset>
+        {% captcha_field form %}
+
+<p style="text-align: center;">
+        <button type="submit">Submit</button>
+        <button type="reset" >Reset </button>
+</p>
+
+    </form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base2.dmpl" %}
+{% block content %}
+<h5>Account Details:<hr></h5>
+<table class="design-table">
+            {% include "profiles/profile_info.html" %}
+</table>
+<h5>Campaigns:<hr></h5>
+{% for campaign in profile.user.campaign_set.all %}
+    {% include "donorportal/portal_campaign_part.html" %}
+{% empty %}
+    <p>This user has not started any campaigns yet</p>
+    <p><br/><br/><br/></p>
+    <p><br/><br/><br/></p>
+    <p><br/><br/><br/></p>
+{% endfor %}
+{% endblock %}

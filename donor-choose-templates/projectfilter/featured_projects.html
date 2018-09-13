@@ -1,0 +1,13 @@
+<div class="anythingSlider">
+	<div class="wrapper">
+		<ul style="list-style-type: none;margin:0;padding:0">
+		{% for fp in featured_projects %}
+			<li>
+			{% with fp.project as project %}		
+				{% include "projectfilter/project_frag.dmpl" %}	
+			{% endwith %}		
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
+</div>

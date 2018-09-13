@@ -1,0 +1,10 @@
+{% extends "donations/singledonation-form.html" %}
+
+{% block projectSpecificDonation %}
+<p style="font-size: 10pt;">
+Welcome to Vibha's project specific donation page. This is a donation to
+the project <a href="http://projects.vibha.org{{ project.get_absolute_url }}">{{ project }}</a>.
+</p>
+{% endblock %}
+
+{% block referringVolunteer %}{% endblock %}

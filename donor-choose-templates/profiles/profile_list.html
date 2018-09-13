@@ -1,0 +1,9 @@
+{% extends "base2.dmpl" %}
+
+{% block content %}
+    {% for profile in object_list %}
+        <table>
+            {% include "profiles/profile_info.html" %}
+        </table>
+    {% endfor %}
+{% endblock %}
